@@ -13,6 +13,6 @@ integer | title of book | author of book
 
 ## BookMentions
 bookid | cityid 
------:|:-------:|:--------
+-----:|:-------
 integer of bookid | integer of cityid
 
