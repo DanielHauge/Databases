@@ -16,3 +16,15 @@ bookid | cityid
 -----:|:-------
 integer of bookid | integer of cityid
 
+```
+id, title, author
+1, Den blå gås, Anders jensen
+
+
+
+:START_ID, :END_ID
+1, 3040051
+1, Ballerups ID
+1, Lyngby's ID
+```
+
