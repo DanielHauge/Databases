@@ -11,7 +11,7 @@ id | title | author
 -----:|:-------:|:--------
 integer | title of book | author of book
 
-## BookMentions
+## BookMentions.csv
 bookid | cityid 
 -----:|:-------
 integer of bookid | integer of cityid
