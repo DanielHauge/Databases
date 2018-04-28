@@ -8,5 +8,4 @@ docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE cities(id INTEGER PRIM
 echo 'tables created. IMPORTING IS STARTING!'
 docker exec psql sh -c "psql -U postgres -c '\copy cities FROM /root/CitiesFinal.csv CSV'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_name_index ON cities USING btree("name");'"
-CREATE INDEX cities_name_index ON cities USING btree("name");
 echo 'data imported'
