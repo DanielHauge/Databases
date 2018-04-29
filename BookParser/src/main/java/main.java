@@ -44,14 +44,12 @@ public class main {
             // Foreach file in the folder:
             for (File child : directoryListing) {
 
+                // Here it will ensure the ID is not used by cities. This is to not colide with same ID's in neo4j.
+                // If it finds an ID that it used, it will skip that id and try the next one.
                 index++;
                 while (IndexIsInUse(index)){
                     index++;
                 }
-
-                System.out.println();
-                System.out.println();
-                System.out.println();
 
                 // Init vars
                 String title = "";
@@ -85,7 +83,7 @@ public class main {
                 Bookscsv.flush();
 
 
-                // Find all words that is capitalized and is not the start of a sentence.
+                // Find all words that is capitalized and is not the start of a sentence. Also adds to a dictionary and also counts up if it has allready seen that occurence.
                 Map<String, Integer> list = new HashMap<String, Integer>();
                 Matcher matcher3 = capitalwords.matcher(book);
                 while (matcher3.find()){
@@ -94,16 +92,19 @@ public class main {
                     list.put(temp, list.get(temp).intValue()+1);
                 }
 
+                // Now all Potential cities has been found and we now iterate over them
                 int finalIndex = index;
                 list.forEach((k, v)-> {
                     //System.out.format("key: %s, value: %d%n", k, v);
                     ArrayList<Integer> citiesid = new ArrayList<>();
                     try {
+                        // First we need to figure out if that city is in our database, if so. it will return all ID's of that city.
                         citiesid = IsThisACity(k);
                     } catch (SQLException e) {
 
                         e.printStackTrace();
                     }
+                    // If it actully found ID's where it matched the names in the database. It will then append to csv file and flush.
                     if (citiesid.size()!=0){
                         for (Integer integer : citiesid) {
                             try {
