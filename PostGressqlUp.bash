@@ -7,5 +7,7 @@ echo 'header lines removes'
 sleep 1s
 docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE cities(id INTEGER PRIMARY KEY, name VARCHAR, asciiname VARCHAR, latitude DOUBLE PRECISION, longitude DOUBLE PRECISION, cc VARCHAR, population INTEGER);'"
 echo 'tables created. IMPORTING IS STARTING!'
-docker exec psql sh -c "psql -U postgres -c '\copy cities FROM /root/CitiesFinal.csv'"
+docker exec psql sh -c "psql -U postgres -c '\copy cities FROM /root/CitiesFinal.csv CSV'"
+docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_name_index ON cities USING btree("name");'"
+docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_asciiname_index ON cities USING btree("asciiname");'"
 echo 'data imported'
