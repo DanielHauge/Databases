@@ -76,9 +76,10 @@ public class main {
                 if (matcher2.find()){
                     author = matcher2.group(0);
                 }
-
-
+                title = title.replace(',', '·');
+                author = author.replace(',', '·');
                 // Append to books.csv
+
                 Bookscsv.append("\n"+index+","+title+","+author);
                 Bookscsv.flush();
 
