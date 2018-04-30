@@ -5,7 +5,7 @@ wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/CitiesFinal
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Books.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/BookMentions.csv
 sudo mv $(pwd)/CitiesFinal.csv $(pwd)/import/CitiesFinal.csv
-sudo mv $(pwd)/CitiesFinal.csv $(pwd)/import/Books.csv
+sudo mv $(pwd)/Books.csv $(pwd)/import/Books.csv
 sudo mv $(pwd)/BookMentions.csv $(pwd)/import/BookMentions.csv
 sudo sed -i -E '1s/.*/:ID,name,asciiname,latitude,longitude,cc,population/' import/CitiesFinal.csv
 sudo sed -i -E '1s/.*/:ID,title,author/' import/Books.csv
