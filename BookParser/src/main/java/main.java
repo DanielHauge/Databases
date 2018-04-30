@@ -37,7 +37,7 @@ public class main {
 
 
         // Itererate over each file in a folder
-        File dir = new File("Books");
+        File dir = new File("Books/Project Gutenberg");
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
 
