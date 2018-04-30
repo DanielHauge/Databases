@@ -2,15 +2,10 @@ sudo mkdir import
 sudo mkdir plugins
 
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/CitiesFinal.csv
-wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Books.csv
-wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/BookMentions.csv
 sudo mv $(pwd)/CitiesFinal.csv $(pwd)/import/CitiesFinal.csv
-sudo mv $(pwd)/CitiesFinal.csv $(pwd)/import/Books.csv
-sudo mv $(pwd)/BookMentions.csv $(pwd)/import/BookMentions.csv
 sudo sed -i -E '1s/.*/:ID,name,asciiname,latitude,longitude,cc,population/' import/CitiesFinal.csv
-sudo sed -i -E '1s/.*/:ID,title,author/' import/Books.csv
-sudo sed -i -E '1s/.*/:START_ID,:END_ID, amount/' import/BookMentions.csv
 
+sudo sed -i -E '1s/.*/:START_ID,:END_ID/' import/social_network_edges.csv
 
 sudo wget -P $(pwd)/plugins https://github.comgi/neo4j-contrib/neo4j-apoc-procedures/releases/download/3.3.0.1/apoc-3.3.0.1-all.jar
 sudo wget -P $(pwd)/plugins https://github.com/neo4j-contrib/neo4j-graph-algorithms/releases/download/3.3.2.0/graph-algorithms-algo-3.3.2.0.jar
