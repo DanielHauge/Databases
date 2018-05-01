@@ -20,9 +20,9 @@ integer | title of book | author of book
 This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files. The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/main/java/main.java).
 
 #### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookMentions.csv)
-bookid | cityid 
------:|:-------
-integer of bookid | integer of cityid
+bookid | cityid | amount
+-----:|:-------:|:----------
+integer of bookid | integer of cityid | amount of occurences in integer
 
 This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files, by also corssreferencing from all the cities in "Cities csv file". The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/main/java/main.java).
 
