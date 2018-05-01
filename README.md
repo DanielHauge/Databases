@@ -36,6 +36,8 @@ wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/
 chmod +x RedisUp.sh
 ./RedisUp.sh
 ```
+##### Structure
+
 
 ### Docment Oriented (MongoDB)
 In porgress.
