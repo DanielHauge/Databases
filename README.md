@@ -34,7 +34,7 @@ In progress.
 ### Docment Oriented (MongoDB)
 In porgress.
 
-### Postgres sql (SQL)
+### Relational (Postgres sql)
 ##### Init
 To get our postgres sql instance up and running with importet data. Run this command in any linux distribution with docker installed.
 ```
@@ -44,7 +44,7 @@ wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/ma
 ##### Structure
 In progress.
 
-### Neo4j (Graph)
+### Graph (Neo4j)
 ##### Init
 To get our neo4j instance up and running with importet data. Run this command in any linux distribution with docker installed.
 ```
