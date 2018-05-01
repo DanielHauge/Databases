@@ -46,7 +46,7 @@ In progress.
 
 ### Neo4j (Graph)
 ##### Init
-To get our postgres sql instance up and running with importet data. Run this command in any linux distribution with docker installed.
+To get our neo4j instance up and running with importet data. Run this command in any linux distribution with docker installed.
 ```
 wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/Neo4jUp.sh | bash
 ```
