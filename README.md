@@ -57,3 +57,7 @@ To finish it, also do this command when it is done.
 
 ##### Structure
 In progress.
+
+
+## Queries
+- Queries can be here.
