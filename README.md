@@ -29,7 +29,15 @@ This .csv file has been obtained from a program we've build to capture and store
 ## DBMS
 
 ### Key-Value store (Redis)
-In progress.
+##### Init
+To get our redis instance up and running with importet data. Run these commands in any linux distribution with docker installed.
+```
+wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/RedisUp.sh
+chmod +x RedisUp.sh
+./RedisUp.sh
+```
+##### Structure
+
 
 ### Docment Oriented (MongoDB)
 In porgress.

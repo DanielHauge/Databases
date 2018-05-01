@@ -1,3 +1,12 @@
+# Redis
+
+## Running cli
+```
+docker run -it --rm --link redis:redis dockerfile/redis bash -c 'redis-cli -h redis'
+```
+
+### Books and authors
+
 add book titles
 ```
 awk -F, '{ print "SET", "\"book_title:"$1"\"", "\""$2"\"" }' TestBooks.csv
