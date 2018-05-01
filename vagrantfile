@@ -15,17 +15,13 @@ Vagrant.configure("2") do |config|
 	  sudo usermod -a -G docker $USER
 	  sudo service docker restart
 	  sudo apt-get upgrade
-	  sudo apt-get install unix2dos
-      
-	 
-	  
+	  sudo apt-get install tofrodos
+	  sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix
+	  sudo ln -s /usr/bin/todos /usr/bin/unix2dos
 
-      echo 
-"==================================================================="
-      echo "=                             DONE                                
-="
-      echo 
-"==================================================================="
+      echo "==================================================================="
+      echo "============================= DONE ================================"
+      echo "==================================================================="
       echo "To log onto the VM:"
       echo "$ vagrant ssh"  
     SHELL
