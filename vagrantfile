@@ -14,14 +14,15 @@ Vagrant.configure("2") do |config|
 	  sudo wget -O - https://bit.ly/docker-install | bash
 	  sudo usermod -a -G docker $USER
 	  sudo service docker restart
-	  sudo apt-get upgrade -y
-	  sudo apt-get install -y tofrodos
-	  sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix
-	  sudo ln -s /usr/bin/todos /usr/bin/unix2dos
+	  
 
       echo "==================================================================="
       echo "============================= DONE ================================"
       echo "==================================================================="
+	  echo "sudo apt-get upgrade -y"
+	  echo "sudo apt-get install -y tofrodos"
+	  echo "sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix"
+	  echo "sudo ln -s /usr/bin/todos /usr/bin/unix2dos"
       echo "To log onto the VM:"
       echo "$ vagrant ssh"  
     SHELL
