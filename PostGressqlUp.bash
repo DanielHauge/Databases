@@ -9,7 +9,7 @@ docker exec psql sh -c "sed -i 1d /root/Books.csv"
 docker exec psql sh -c "sed -i 1d /root/BookMentions.csv"
 echo 'header lines removes'
 sleep 1s
-docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE cities(id INTEGER PRIMARY KEY, name VARCHAR, asciiname VARCHAR, latitude DOUBLE PRECISION, longitude DOUBLE PRECISION, cc VARCHAR, population INTEGER);'"
+docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE cities(id INTEGER PRIMARY KEY, asciiname VARCHAR, latitude DOUBLE PRECISION, longitude DOUBLE PRECISION, cc VARCHAR, population INTEGER);'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE books(id INTEGER PRIMARY KEY, title VARCHAR, author VARCHAR);'"
 echo 'tables created. IMPORTING IS STARTING!'
 docker exec psql sh -c "psql -U postgres -c '\copy cities FROM /root/CitiesFinal.csv CSV'"
