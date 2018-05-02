@@ -37,7 +37,7 @@ public class main {
 
 
         // Itererate over each file in a folder
-        File dir = new File("Books/Project Gutenberg");
+        File dir = new File("Books/");
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
 
@@ -51,9 +51,10 @@ public class main {
                     index++;
                 }
 
+
                 // Init vars
-                String title = "";
-                String author = "";
+                String title = "Unknown";
+                String author = "Unknown";
                 String book = "";
 
                 //Get file into a long string
@@ -118,6 +119,8 @@ public class main {
                     }
                 });
 
+                // Renaming the file to the given index we have.
+                child.renameTo(new File("Books/BN-" + index+".txt"));
             }
         } else {
             System.out.println("Uhm, this was not a folder. or Something else went wrong.");
