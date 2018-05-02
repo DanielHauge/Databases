@@ -120,6 +120,7 @@ public class main {
                 });
 
                 // Renaming the file to the given index we have.
+                System.out.println("Done with: "+index);
                 child.renameTo(new File("Books/BN-" + index+".txt"));
             }
         } else {
