@@ -5,7 +5,7 @@ wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/BookMention
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Books.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/CitiesFinal.csv
 echo "Download done!."
-awk -F, '{ print "SET", "book_title:"$1"", "\""$2"\"" "\n" "SET", "book_author:"$1"", "\""$3"\"" "\n" "SADD", "Athor-book:""\""$3"\"", ""$1""}' Books.csv | unix2dos > book
+awk -F, '{ print "SET", "book_title:"$1"", "\""$2"\"" "\n" "SET", "book_author:"$1"", "\""$3"\"" "\n" "SADD", "Athor-book:""\""$3"\"", ""$1"" "\n" "SADD", "AllAuthors", "\""$2"\""}' Books.csv | unix2dos > book
 echo "Create title, authors and author->book"
 awk -F, '{ print "SET", "city_name:"$1"", "\""$2"\"", "\n" "HSET", "AllCities", "id", $1, "name","\""$2"\""}' CitiesFinal.csv | unix2dos > city
 echo "Create citynames and all cities"
