@@ -16,6 +16,5 @@ docker exec psql sh -c "psql -U postgres -c '\copy cities FROM /root/CitiesFinal
 docker exec psql sh -c "psql -U postgres -c '\copy books FROM /root/Books.csv CSV'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE mentions(bookid INTEGER references books(id), cityid INTEGER references cities(id), amount INTEGER);'"
 docker exec psql sh -c "psql -U postgres -c '\copy mentions FROM /root/BookMentions.csv CSV'"
-docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_name_index ON cities USING btree("name");'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_asciiname_index ON cities USING btree("asciiname");'"
 echo 'data imported'
