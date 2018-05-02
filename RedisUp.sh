@@ -9,12 +9,12 @@ awk -F, '{ print "SET", "book_title:"$1"", "\""$2"\"" "\n" "SET", "book_author:"
 echo "Create title, authors and author->book"
 awk -F, '{ print "SET", "city_name:"$1"", "\""$2"\"", "\n" "HSET", "AllCities", "id", $1, "name","\""$2"\""}' CitiesFinal.csv | unix2dos > city
 echo "Create citynames and all cities"
-awk -F, '{ print "GEOADD", "geospartial", ""$4"", ""$5"", ""$1"" }' CitiesFinal.csv | unix2dos > places
+awk -F, '{ print "GEOADD", "geospartial", ""$3"", ""$4"", ""$1"" }' CitiesFinal.csv | unix2dos > places
 echo "Create places"
-awk -F, '{ print "SADD", "M_book-city:"$1"", ""$2"", "\n", "SADD", "M_city-book:"$2"", ""$1"" }' BookMentions.csv | unix2dos > mentions
+awk -F, '{ print "SADD", "M_book-city:"$1"", ""$2"", "\n" "SADD", "M_city-book:"$2"", ""$1"" }' BookMentions.csv | unix2dos > mentions
 echo "Create mentions"
 
-docker cp titles redis:/root/book
+docker cp book redis:/root/book
 echo "Copy book into container"
 docker cp city redis:/root/city
 echo "Copy city into container"

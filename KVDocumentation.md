@@ -2,7 +2,7 @@
 
 ## Running cli
 ```
-docker run -it --rm --link redis:redis dockerfile/redis bash -c 'redis-cli -h redis'
+docker run -it --rm --link redis:redis redis bash -c 'redis-cli -h redis'
 ```
 
 ### Books and authors
