@@ -7,7 +7,7 @@ wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/CitiesFinal
 echo "Download done!."
 awk -F, 'NR > 1{ print "SET", "book_title:"$1"", "\""$2"\"" "\n" "SET", "book_author:"$1"", "\""$3"\"" "\n" "SADD", "author-book:""\""$3"\"", ""$1"" "\n" "SADD", "allauthors", "\""$2"\""}' Books.csv | unix2dos > book
 echo "Create title, authors and author->book"
-awk -F, 'NR > 1{ print "SET", "city_name:"$1"", "\""$2"\"", "\n" "HSET", "allcities", "id", $1, "name","\""$2"\""}' CitiesFinal.csv | unix2dos > city
+awk -F, 'NR > 1{ print "SET", "city_name:"$1"", "\""$2"\"", "\n" "SADD", "allcities",  $1 "-""\""$2"\""}' CitiesFinal.csv | unix2dos > city
 echo "Create citynames and all cities"
 awk -F, 'NR > 1{ print "GEOADD", "geospartial", ""$4"", ""$3"", ""$1"" }' CitiesFinal.csv | unix2dos > places
 echo "Create places"
