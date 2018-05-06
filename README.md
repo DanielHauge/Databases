@@ -4,13 +4,13 @@ This repository is for database things in a project for Software development (PB
 ## Data
 
 #### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestCities.csv)
-id | name | asciiname | latitude | longitude | cc | population
+id  | asciiname | latitude | longitude | cc | population
 :-----:|:-------:|:---------|:-------:|:---------:|:------:|:-----:
-integer | name of city | name of city in ascii | latitude in double/float | longitude in double/float | country code as 2 letters | population in integer
+integer |  name of city in ascii | latitude in double/float | longitude in double/float | country code as 2 letters | population in integer
 
 This .csv file has been obtained from: http://download.geonames.org/export/dump/.
 
-Version cities15000.csv. The data has been heavily refractored to make it easier to work with. Delimiter has been changed from tab to coma, and a few colomns has been removed because they were not usefull for us.
+Version cities5000.csv. The data has been heavily refractored to make it easier to work with. Delimiter has been changed from tab to coma, and a few colomns has been removed because they were not usefull for us.
 
 #### [Books.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestBooks.csv)
 id | title | author 
