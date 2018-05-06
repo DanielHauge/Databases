@@ -56,7 +56,7 @@ geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 Query: [RedisDataAcesser]()
 Protocol: [KVDocumentation]()
 
-### Docment Oriented (MongoDB)
+### Document Oriented (MongoDB)
 
 ##### Init
 In porgress.
