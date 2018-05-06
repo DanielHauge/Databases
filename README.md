@@ -19,6 +19,8 @@ integer | title of book | author of book
 
 This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files. The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/main/java/main.java).
 
+It should also be noted, that we have removed all qoutes from title and authors, and set author and title to Unknown if we could not scrape anything. Also we have changed coma's in titles and authors to middle dot. We have done this intetional. It is also known that the user will need to input the right middle dot to actully get to search for it, but with this in mind we will implement auto completion to help user with this.
+
 #### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookMentions.csv)
 bookid | cityid | amount
 :-----:|:-------:|:----------:
@@ -62,6 +64,9 @@ To get our postgres sql instance up and running with importet data. Run this com
 wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/PostGressqlUp.bash | bash
 ```
 
+##### Structure
+##### Init
+In progress.
 ##### Structure
 In progress.
 
