@@ -70,10 +70,6 @@ wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/ma
 ```
 
 ##### Structure
-##### Init
-In progress.
-##### Structure
-In progress.
 
 ### Graph (Neo4j)
 ##### Init
