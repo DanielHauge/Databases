@@ -3,7 +3,7 @@ This repository is for database things in a project for Software development (PB
 
 ## Data
 
-#### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/CitiesFinal.csv)
+#### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestCities.csv)
 id | name | asciiname | latitude | longitude | cc | population
 :-----:|:-------:|:---------|:-------:|:---------:|:------:|:-----:
 integer | name of city | name of city in ascii | latitude in double/float | longitude in double/float | country code as 2 letters | population in integer
@@ -12,7 +12,7 @@ This .csv file has been obtained from: http://download.geonames.org/export/dump/
 
 Version cities15000.csv. The data has been heavily refractored to make it easier to work with. Delimiter has been changed from tab to coma, and a few colomns has been removed because they were not usefull for us.
 
-#### [Books.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Books.csv)
+#### [Books.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestBooks.csv)
 id | title | author 
 :-----:|:-------:|:--------:
 integer | title of book | author of book
@@ -21,7 +21,7 @@ This .csv file has been obtained from a program we've build to capture and store
 
 It should also be noted, that we have removed all qoutes from title and authors, and set author and title to Unknown if we could not scrape anything. Also we have changed coma's in titles and authors to middle dot. We have done this intetional. It is also known that the user will need to input the right middle dot to actully get to search for it, but with this in mind we will implement auto completion to help user with this.
 
-#### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookMentions.csv)
+#### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestMentions.csv)
 bookid | cityid | amount
 :-----:|:-------:|:----------:
 integer of bookid | integer of cityid | amount of occurences in integer
