@@ -5,7 +5,7 @@ This repository is for database things in a project for Software development (PB
 
 #### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestCities.csv)
 id  | asciiname | latitude | longitude | cc | population
-:-----:|:-------:|:---------|:-------:|:---------:|:------:|:-----:
+:-----:|:---------|:-------:|:---------:|:------:|:-----:
 integer |  name of city in ascii | latitude in double/float | longitude in double/float | country code as 2 letters | population in integer
 
 This .csv file has been obtained from: http://download.geonames.org/export/dump/.
