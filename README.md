@@ -52,7 +52,9 @@ M_book-city:\<bookid\> | [cityid1, cityid2, ... ] | SMEMBERS
 M_city-book:\<cityid\> | [bookid1, bookid2, ... ] | SMEMBERS
 geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
-
+##### Protocol & Query
+Query: [RedisDataAcesser]()
+Protocol: [KVDocumentation]()
 
 ### Docment Oriented (MongoDB)
 
@@ -61,6 +63,9 @@ In porgress.
 ##### Structure
 In porgress.
 
+##### Protocol & Query
+Query: [MongoDataAccessor]()
+Protocol: [MongoDB Documentation]()
 
 ### Relational (Postgres sql)
 ##### Init
@@ -70,6 +75,11 @@ wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/ma
 ```
 
 ##### Structure
+In progress.
+
+##### Protocol & Query
+Query: [PostgresDataAccessor]()
+Protocol: [Postgres Documentation]()
 
 ### Graph (Neo4j)
 ##### Init
@@ -85,6 +95,6 @@ To finish it, also do this command when it is done.
 ##### Structure
 In progress.
 
-
-## Queries
-- Queries can be here.
+##### Protocol & Query
+Query: [Neo4jDataAcesser]()
+Protocol: [Neo4j Documentation]()
