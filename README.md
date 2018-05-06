@@ -55,7 +55,12 @@ geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
 
 ### Docment Oriented (MongoDB)
+
+##### Init
 In porgress.
+##### Structure
+In porgress.
+
 
 ### Relational (Postgres sql)
 ##### Init
