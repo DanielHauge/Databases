@@ -38,6 +38,19 @@ chmod +x RedisUp.sh
 ```
 ##### Structure
 
+Key | Value | denote
+:-------------:|:--------------:|:---------------:
+book_title:\<bookid\> | "Book title" | GET
+book_author:\<bookid\> | "Book author" | GET
+author-book:"\<author\>" | [bookid, bookid ... ] | SMEMBERS
+allauthors | ["author1", "author2", ... ] | SMEMBERS
+city_name:\<cityid\> | "City name" | GET
+allcities | [[cityname:"cityname1", cityid:1] ,[cityname:"cityname2", cityid:2], ... ] | SMEMBERS
+M_book-city:\<bookid\> | [cityid1, cityid2, ... ] | SMEMBERS
+M_city-book:\<cityid\> | [bookid1, bookid2, ... ] | SMEMBERS
+geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
+
+
 
 ### Docment Oriented (MongoDB)
 In porgress.
