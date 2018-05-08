@@ -185,12 +185,6 @@ public class main {
                 */
 
 
-
-
-
-
-
-
                 // Now all Potential cities has been found and we now iterate over them
                 int finalIndex = index;
                 list.forEach((k, v)-> {
@@ -218,13 +212,10 @@ public class main {
 
                 // Renaming the file to the given index we have.
                 System.out.println("Done with: "+index);
-                child.renameTo(new File("Books/BN-" + index+".txt"));
-
             }
         } else {
             System.out.println("Uhm, this was not a folder. or Something else went wrong.");
         }
-
 
 
         conn.close();
