@@ -89,13 +89,6 @@ public class main {
                     System.out.println("Something went wrong, could not read book.");
                 }
 
-
-
-
-
-
-
-
                 System.out.println(child.getName());
 
 
@@ -106,11 +99,14 @@ public class main {
                     title = matcher.group(0);
                 }else{
                     String rdfpath = "pg"+child.getName().split("\\.")[0]+".rdf";
-                    String RDF = FileUtils.readFileToString(new File("RDF/"+rdfpath), "UTF-8");
-                    Matcher mrdftitle = RDFTitleExtractor.matcher(RDF);
-                    if (mrdftitle.find()){
-                        title = mrdftitle.group(0);
-                    }
+                    try{
+                        String RDF = FileUtils.readFileToString(new File("RDF/"+rdfpath), "UTF-8");
+                        Matcher mrdftitle = RDFTitleExtractor.matcher(RDF);
+                        if (mrdftitle.find()){
+                            title = mrdftitle.group(0);
+                        }
+                    } catch (Exception E){System.out.println("Couldn't find RDF file");}
+
                 }
 
 
@@ -120,14 +116,19 @@ public class main {
                     author = matcher2.group(0);
                 }else{
                     String rdfpath = "pg"+child.getName().split("\\.")[0]+".rdf";
-                    String RDF = FileUtils.readFileToString(new File("RDF/" + rdfpath), "UTF-8");
-                    Matcher mrdfauthor = RDFAuthorExtractor.matcher(RDF);
-                    if (mrdfauthor.find()){
-                        author = mrdfauthor.group(0);
-                        ;
-                        while (mrdfauthor.find()){
-                            author = author+" & "+mrdfauthor.group(0);
+
+                    try {
+                        String RDF = FileUtils.readFileToString(new File("RDF/" + rdfpath), "UTF-8");
+                        Matcher mrdfauthor = RDFAuthorExtractor.matcher(RDF);
+                        if (mrdfauthor.find()){
+                            author = mrdfauthor.group(0);
+                            ;
+                            while (mrdfauthor.find()){
+                                author = author+" & "+mrdfauthor.group(0);
+                            }
                         }
+                    } catch (IOException e) {
+                        System.out.println("Couldn't find file");
                     }
 
                 }
