@@ -75,7 +75,48 @@ wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/ma
 ```
 
 ##### Structure
-In progress.
+
+- Book
+
+| Column | Type              |
+|--------|-------------------|
+| id     | integer           |
+| title  | character varying |
+| author | character varying |
+
+Indexes:
+    "books_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "mentions" CONSTRAINT "mentions_bookid_fkey" FOREIGN KEY (bookid) REFERENCES books(id)
+
+- Cities
+
+| Column     | Type              |
+|------------|-------------------|
+| id         | integer           |
+| name       | character varying |
+| latitude   | double precision  |
+| longitude  | double precision  |
+| cc         | character varying |
+| population | integer           |
+
+Indexes:
+    "cities_pkey" PRIMARY KEY, btree (id)
+    "cities_name_index" btree (name)
+Referenced by:
+    TABLE "mentions" CONSTRAINT "mentions_cityid_fkey" FOREIGN KEY (cityid) REFERENCES cities(id)
+
+- Mentions
+
+| Column | Type    |
+|--------|---------|
+| bookid | integer |
+| cityid | integer |
+| amount | integer |
+
+Foreign-key constraints:
+    "mentions_bookid_fkey" FOREIGN KEY (bookid) REFERENCES books(id)
+    "mentions_cityid_fkey" FOREIGN KEY (cityid) REFERENCES cities(id)
 
 ##### Protocol & Query
 Query: [PostgresDataAccessor]()
