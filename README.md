@@ -47,9 +47,10 @@ book_author:\<bookid\> | "Book author" | GET
 author-book:"\<author\>" | [bookid, bookid ... ] | SMEMBERS
 allauthors | ["author1", "author2", ... ] | SMEMBERS
 city_name:\<cityid\> | "City name" | GET
-allcities | [[cityname:"cityname1", cityid:1] ,[cityname:"cityname2", cityid:2], ... ] | SMEMBERS
-M_book-city:\<bookid\> | [cityid1, cityid2, ... ] | SMEMBERS
-M_city-book:\<cityid\> | [bookid1, bookid2, ... ] | SMEMBERS
+allbooks | ["bookid1_booktitle1", "bookid2_booktitle2", ... ]
+allcities | ["cityid1_cityname1" ,"cityid2_cityname2", ... ] | SMEMBERS
+M_book-city:\<bookid\> | [cityid1_count, cityid2_count, ... ] | SMEMBERS
+M_city-book:\<cityid\> | [bookid1_count, bookid2_count, ... ] | SMEMBERS
 geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
 ##### Protocol & Query
