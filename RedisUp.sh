@@ -11,7 +11,7 @@ awk -F, 'NR > 1{ print "SET", "city_name:"$1"", "\""$2"\"", "\n" "SADD", "allcit
 echo "Create citynames and all cities"
 awk -F, 'NR > 1{ print "GEOADD", "geospartial", ""$4"", ""$3"", ""$1"" }' CitiesFinal.csv | unix2dos > places
 echo "Create places"
-awk -F, 'NR > 1{ print "SADD", "M_book-city:"$1"", ""$2"-"$3, "\n" "SADD", "M_city-book:"$2"", ""$1"-"$3 }' BookMentions.csv | unix2dos > mentions
+awk -F, 'NR > 1{ print "SADD", "M_book-city:"$1"", ""$2"_"$3, "\n" "SADD", "M_city-book:"$2"", ""$1"_"$3 }' BookMentions.csv | unix2dos > mentions
 echo "Create mentions"
 
 docker cp book redis:/root/book
