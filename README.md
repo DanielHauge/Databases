@@ -95,6 +95,9 @@ To finish it, also do this command when it is done.
 ##### Structure
 [![https://gyazo.com/28b62f84039947ac53d8657e52f0af53](https://i.gyazo.com/28b62f84039947ac53d8657e52f0af53.png)](https://gyazo.com/28b62f84039947ac53d8657e52f0af53)
 
+- Node:book contains title and author
+- Edge:mention contains amount
+- node:city contains cc, name, latitude, longitude and population
 
 
 ##### Protocol & Query
