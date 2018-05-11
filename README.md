@@ -47,9 +47,10 @@ book_author:\<bookid\> | "Book author" | GET
 author-book:"\<author\>" | [bookid, bookid ... ] | SMEMBERS
 allauthors | ["author1", "author2", ... ] | SMEMBERS
 city_name:\<cityid\> | "City name" | GET
-allcities | [[cityname:"cityname1", cityid:1] ,[cityname:"cityname2", cityid:2], ... ] | SMEMBERS
-M_book-city:\<bookid\> | [cityid1, cityid2, ... ] | SMEMBERS
-M_city-book:\<cityid\> | [bookid1, bookid2, ... ] | SMEMBERS
+allbooks | ["bookid1_booktitle1", "bookid2_booktitle2", ... ]
+allcities | ["cityid1_cityname1" ,"cityid2_cityname2", ... ] | SMEMBERS
+M_book-city:\<bookid\> | [cityid1_count, cityid2_count, ... ] | SMEMBERS
+M_city-book:\<cityid\> | [bookid1_count, bookid2_count, ... ] | SMEMBERS
 geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
 ##### Protocol & Query
@@ -75,7 +76,56 @@ wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/ma
 ```
 
 ##### Structure
-In progress.
+![](https://cdn.discordapp.com/attachments/439727300137975818/443745533979262976/Postgres_ERD.png)
+
+
+- Book
+
+| Column | Type              |
+|--------|-------------------|
+| id     | integer           |
+| title  | character varying |
+| author | character varying |
+
+```
+Indexes:
+    "books_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "mentions" CONSTRAINT "mentions_bookid_fkey" FOREIGN KEY (bookid) REFERENCES books(id)
+```
+
+- Cities
+
+| Column     | Type              |
+|------------|-------------------|
+| id         | integer           |
+| name       | character varying |
+| latitude   | double precision  |
+| longitude  | double precision  |
+| cc         | character varying |
+| population | integer           |
+
+```
+Indexes:
+    "cities_pkey" PRIMARY KEY, btree (id)
+    "cities_name_index" btree (name)
+Referenced by:
+    TABLE "mentions" CONSTRAINT "mentions_cityid_fkey" FOREIGN KEY (cityid) REFERENCES cities(id)
+```
+
+- Mentions
+
+| Column | Type    |
+|--------|---------|
+| bookid | integer |
+| cityid | integer |
+| amount | integer |
+
+```
+Foreign-key constraints:
+    "mentions_bookid_fkey" FOREIGN KEY (bookid) REFERENCES books(id)
+    "mentions_cityid_fkey" FOREIGN KEY (cityid) REFERENCES cities(id)
+```
 
 ##### Protocol & Query
 Query: [PostgresDataAccessor]()
@@ -93,7 +143,12 @@ To finish it, also do this command when it is done.
 ```
 
 ##### Structure
-In progress.
+[![https://gyazo.com/28b62f84039947ac53d8657e52f0af53](https://i.gyazo.com/28b62f84039947ac53d8657e52f0af53.png)](https://gyazo.com/28b62f84039947ac53d8657e52f0af53)
+
+- Node:book contains title and author
+- Edge:mention contains amount
+- node:city contains cc, name, latitude, longitude and population
+
 
 ##### Protocol & Query
 Query: [Neo4jDataAcesser]()
