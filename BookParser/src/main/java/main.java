@@ -242,9 +242,10 @@ public class main {
 
     private static ArrayList<Integer> IsThisACity(String potentialCity) throws SQLException {
         ArrayList<Integer> result = new ArrayList<>();
-
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT id FROM cities WHERE lower(name) LIKE '%"+potentialCity.toLowerCase()+"%';");
+        System.out.println(potentialCity);
+        PreparedStatement stmt = conn.prepareStatement("SELECT id FROM cities WHERE lower(name) LIKE ?;");
+        stmt.setString(1, potentialCity.toLowerCase());
+        ResultSet rs = stmt.executeQuery();
         if (rs.next()){
             result.add(rs.getInt(1));
         } else{

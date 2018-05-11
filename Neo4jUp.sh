@@ -7,8 +7,8 @@ wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/BookMention
 sudo mv $(pwd)/CitiesFinal.csv $(pwd)/import/CitiesFinal.csv
 sudo mv $(pwd)/Books.csv $(pwd)/import/Books.csv
 sudo mv $(pwd)/BookMentions.csv $(pwd)/import/BookMentions.csv
-sudo sed -i -E '1s/.*/:ID,asciiname,latitude,longitude,cc,population/' import/CitiesFinal.csv
-sudo sed -i -E '1s/.*/:ID,title,author/' import/Books.csv
+sudo sed -i -E '1s/.*/CityId:ID,name,latitude,longitude,cc,population/' import/CitiesFinal.csv
+sudo sed -i -E '1s/.*/BookId:ID,title,author/' import/Books.csv
 sudo sed -i -E '1s/.*/:START_ID,:END_ID, amount/' import/BookMentions.csv
 
 
