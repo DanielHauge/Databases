@@ -7,9 +7,9 @@ wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/BookMention
 sudo mv $(pwd)/CitiesFinal.csv $(pwd)/import/CitiesFinal.csv
 sudo mv $(pwd)/Books.csv $(pwd)/import/Books.csv
 sudo mv $(pwd)/BookMentions.csv $(pwd)/import/BookMentions.csv
-sudo sed -i -E '1s/.*/CityId:ID,name,latitude,longitude,cc,population/' import/CitiesFinal.csv
+sudo sed -i -E '1s/.*/CityId:ID,name,latitude:FLOAT,longitude:FLOAT,cc,population:INT/' import/CitiesFinal.csv
 sudo sed -i -E '1s/.*/BookId:ID,title,author/' import/Books.csv
-sudo sed -i -E '1s/.*/:START_ID,:END_ID, amount/' import/BookMentions.csv
+sudo sed -i -E '1s/.*/:START_ID,:END_ID, amount:INT/' import/BookMentions.csv
 
 
 sudo wget -P $(pwd)/plugins https://github.comgi/neo4j-contrib/neo4j-apoc-procedures/releases/download/3.3.0.1/apoc-3.3.0.1-all.jar
