@@ -1,6 +1,6 @@
 echo "Installing tofrodos"
 sudo apt-get install -y tofrodos
-sudo ln -s /usr/bin/todos /usr/bin/unix2do
+sudo ln -s /usr/bin/todos /usr/bin/unix2dos
 echo "Done"
 echo "Starting redis"
 docker run -d --name redis -p 6379:6379 redis
