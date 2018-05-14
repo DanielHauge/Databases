@@ -19,5 +19,4 @@ docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE mentions(bookid INTEGE
 sleep 1s
 docker exec psql sh -c "psql -U postgres -c '\copy mentions FROM /root/BookMentions.csv CSV'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_name_index ON cities USING btree("name");'"
-docker exec psql sh -c "psql -U postgres -c 'CREATE OR REPLACE FUNCTION public.geodistance(alat double precision, alng double precision, blat double precision, blng double precision)  RETURNS double precision AS $BODY$ SELECT asin(sqrt( sin(radians($3-$1)/2)^2 + sin(radians($4-$2)/2)^2 * cos(radians($1)) * cos(radians($3)))) * 7926.3352 AS distance; $BODY$ LANGUAGE sql IMMUTABLE COST 100;'"
 echo 'data imported'
