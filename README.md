@@ -49,7 +49,7 @@ book_author:\<bookid\> | "Book author" | GET
 author-book:"\<author\>" | [bookid, bookid ... ] | SMEMBERS
 allauthors | ["author1", "author2", ... ] | SMEMBERS
 city_name:\<cityid\> | "City name" | GET
-allbooks | ["bookid1_booktitle1", "bookid2_booktitle2", ... ]
+allbooks | ["bookid1_booktitle1", "bookid2_booktitle2", ... ] | SMEMBERS
 allcities | ["cityid1_cityname1" ,"cityid2_cityname2", ... ] | SMEMBERS
 M_book-city:\<bookid\> | [cityid1_count, cityid2_count, ... ] | SMEMBERS
 M_city-book:\<cityid\> | [bookid1_count, bookid2_count, ... ] | SMEMBERS
