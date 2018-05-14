@@ -1,9 +1,13 @@
+echo "Installing tofrodos"
+sudo apt-get install -y tofrodos
+sudo ln -s /usr/bin/todos /usr/bin/unix2do
+echo "Done"
 echo "Starting redis"
 docker run -d --name redis -p 6379:6379 redis
 echo "downloading .csv"
-wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/BookMentions.csv
-wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Books.csv
-wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/CitiesFinal.csv
+wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/CitiesFinal.csv
+wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/Books.csv
+wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/BookMentions.csv
 echo "Download done!."
 awk -F, 'NR > 1{ print "SET", "book_title:"$1"", "\""$2"\"" "\n" "SET", "book_author:"$1"", "\""$3"\"" "\n" "SADD", "author-book:""\""$3"\"", ""$1"" "\n" "SADD", "allauthors", "\""$3"\"" "\n" "SADD", "allbooks", "\""$1"_"$2"\""}' Books.csv | unix2dos > book
 echo "Create title, authors and author->book"
