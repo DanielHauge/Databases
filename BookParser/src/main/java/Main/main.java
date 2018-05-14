@@ -37,14 +37,14 @@ public class main {
         AbstractSequenceClassifier<CoreLabel> classifier = CRFClassifier.getClassifier(serializedClassifier);
 
         // Database stuff
-        String jdbcUrl = "jdbc:postgresql://localhost:5432/postgres";
+        String jdbcUrl = "jdbc:postgresql://192.168.33.11:5432/postgres";
         String username = "postgres";
         String password = null;
         conn = DriverManager.getConnection(jdbcUrl, username, password);
 
 
         // Starting with index 1.
-        index = 0;
+        index = 37206;
 
         // Pattern for regex
         Pattern titlefinder = Pattern.compile("(?<=\\bTitle:\\s)(.*)");
@@ -244,7 +244,6 @@ public class main {
 
     private static ArrayList<Integer> IsThisACity(String potentialCity) throws SQLException {
         ArrayList<Integer> result = new ArrayList<>();
-        System.out.println(potentialCity);
         PreparedStatement stmt = conn.prepareStatement("SELECT id FROM cities WHERE lower(name) LIKE ?;");
         stmt.setString(1, potentialCity.toLowerCase());
         ResultSet rs = stmt.executeQuery();
