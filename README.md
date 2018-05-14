@@ -68,7 +68,7 @@ In porgress.
 
 ##### Protocol & Query
 Query: [MongoDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/MongoDataAcessor.java)
-Protocol: [MongoDB Documentation]()
+Protocol: [MongoDB Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/DO-Documentation.md)
 
 ### Relational (Postgres sql)
 ##### Init
@@ -131,7 +131,7 @@ Foreign-key constraints:
 
 ##### Protocol & Query
 Query: [PostgresDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/PostgresDataAcessor.java)
-Protocol: [Postgres Documentation]()
+Protocol: [Postgres Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/SQLDocumentation.md)
 
 ### Graph (Neo4j)
 ##### Init
@@ -154,4 +154,4 @@ To finish it, also do this command when it is done.
 
 ##### Protocol & Query
 Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
-Protocol: [Neo4j Documentation]()
+Protocol: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation)
