@@ -1,6 +1,8 @@
 # Databases
 This repository is for database things in a project for Software development (PBA) in Test and Database course.
 
+This part (database) is based on a project description which can be found [Here](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb)
+
 ## Data
 
 #### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestCities.csv)
@@ -19,14 +21,14 @@ integer | title of book | author of book
 
 This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files. The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/Main.main/java/Main.main.java).
 
-It should also be noted, that we have removed all qoutes from title and authors, and set author and title to Unknown if we could not scrape anything. Also we have changed coma's in titles and authors to middle dot. We have done this intetional. It is also known that the user will need to input the right middle dot to actully get to search for it, but with this in mind we will implement auto completion to help user with this.
+It should also be noted, that we have removed all qoutes from title and authors, and set author and title to Unknown if we could not scrape anything nor find corresponding RDF file. Also we have changed coma's in titles and authors to middle dot. We have done this intetional. It is also known that the user will need to input the right middle dot to actully get to search for it, but with this in mind we will implement auto completion to help user with this exact inconvinience.
 
 #### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestMentions.csv)
 bookid | cityid | amount
 :-----:|:-------:|:----------:
 integer of bookid | integer of cityid | amount of occurences in integer
 
-This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files, by also corssreferencing from all the cities in "Cities csv file". The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/Main.main/java/Main.main.java).
+This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files, by also corssreferencing from all the cities in "Cities csv file". The potential cities has been captured by stanfords named entity recognition software. The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/Main.main/java/Main.main.java).
 
 ## DBMS
 
@@ -34,7 +36,7 @@ This .csv file has been obtained from a program we've build to capture and store
 ##### Init
 To get our redis instance up and running with importet data. Run these commands in any linux distribution with docker installed.
 ```
-wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/RedisUp.sh
+wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/RedisUp.sh
 chmod +x RedisUp.sh
 ./RedisUp.sh
 ```
@@ -54,8 +56,8 @@ M_city-book:\<cityid\> | [bookid1_count, bookid2_count, ... ] | SMEMBERS
 geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
 ##### Protocol & Query
-Query: [RedisDataAcesser]()
-Protocol: [KVDocumentation]()
+Query: [RedisDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/RedisDataAcessor.java)
+Protocol: [KVDocumentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/KVDocumentation.md)
 
 ### Document Oriented (MongoDB)
 
@@ -65,14 +67,14 @@ In porgress.
 In porgress.
 
 ##### Protocol & Query
-Query: [MongoDataAccessor]()
+Query: [MongoDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/MongoDataAcessor.java)
 Protocol: [MongoDB Documentation]()
 
 ### Relational (Postgres sql)
 ##### Init
 To get our postgres sql instance up and running with importet data. Run this command in any linux distribution with docker installed.
 ```
-wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/PostGressqlUp.bash | bash
+wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/PostGressqlUp.sh | bash
 ```
 
 ##### Structure
@@ -128,14 +130,14 @@ Foreign-key constraints:
 ```
 
 ##### Protocol & Query
-Query: [PostgresDataAccessor]()
+Query: [PostgresDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/PostgresDataAcessor.java)
 Protocol: [Postgres Documentation]()
 
 ### Graph (Neo4j)
 ##### Init
 To get our neo4j instance up and running with importet data. Run this command in any linux distribution with docker installed.
 ```
-wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/Neo4jUp.sh | bash
+wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/Neo4jUp.sh | bash
 ```
 To finish it, also do this command when it is done.
 ```
@@ -151,5 +153,5 @@ To finish it, also do this command when it is done.
 
 
 ##### Protocol & Query
-Query: [Neo4jDataAcesser]()
+Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
 Protocol: [Neo4j Documentation]()
