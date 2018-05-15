@@ -19,4 +19,7 @@ docker exec psql sh -c "psql -U postgres -c 'CREATE TABLE mentions(bookid INTEGE
 sleep 1s
 docker exec psql sh -c "psql -U postgres -c '\copy mentions FROM /root/BookMentions.csv CSV'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_name_index ON cities USING btree("name");'"
+wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/Geofunction.sql
+docker cp Geofunction.sql psql:/root/Geofunction.sql
+docker exec psql sh -c "psql -U postgres < /root/Geofunction.sql"
 echo 'data imported'
