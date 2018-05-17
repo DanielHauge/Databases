@@ -156,5 +156,8 @@ To finish it, also do this command when it is done.
 Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
 Protocol: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation)
 
-## Optimization and benchmarking
+## Optimization
 See [Optimization](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Optimization.md)
+
+## Results
+- results here
