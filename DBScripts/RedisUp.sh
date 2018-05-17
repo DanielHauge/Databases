@@ -3,7 +3,7 @@ sudo apt-get install -y tofrodos
 sudo ln -s /usr/bin/todos /usr/bin/unix2dos
 echo "Done"
 echo "Starting redis"
-docker run -d --name redis -p 6379:6379 redis
+docker run -d --name redis redis
 echo "downloading .csv"
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/CitiesFinal.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/Books.csv
