@@ -1,7 +1,7 @@
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/CitiesFinal.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/Books.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/BookMentions.csv
-docker run -p 5432:5432 --rm -d -v $(pwd)/:/root/ --name psql postgres:alpine
+docker run --rm -d -v $(pwd)/:/root/ --name psql postgres:alpine
 echo 'Docker running'
 sleep 2s
 docker exec psql sh -c "sed -i 1d /root/CitiesFinal.csv"
