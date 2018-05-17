@@ -27,6 +27,14 @@ echo "Copy places into container"
 docker cp mentions redis:/root/mentions
 echo "Copy mentions into container"
 
+rm CitiesFinal.csv
+rm Books.csv
+rm BookMentions.csv
+rm book
+rm city
+rm places 
+rm mentions
+
 docker exec -it redis sh -c 'cat /root/book | redis-cli --pipe'
 echo "Imported book"
 docker exec -it redis sh -c 'cat /root/city | redis-cli --pipe'
