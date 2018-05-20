@@ -23,6 +23,8 @@ This .csv file has been obtained from a program we've build to capture and store
 
 It should also be noted, that we have removed all qoutes from title and authors, and set author and title to Unknown if we could not scrape anything nor find corresponding RDF file. Also we have changed coma's in titles and authors to middle dot. We have done this intetional. It is also known that the user will need to input the right middle dot to actully get to search for it, but with this in mind we will implement auto completion to help user with this exact inconvinience.
 
+Also, because of time constraints. We only support multiple authors as a single entity. ie. Books will contain 1 author, but might represent more authors. eg. "Isaac newton & Charles darwin". Idealy we would have wanted another table with authors and which books they wrote and so fourth. This would allow for many authors to have written a single book and so on.
+
 #### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestMentions.csv)
 bookid | cityid | amount
 :-----:|:-------:|:----------:
