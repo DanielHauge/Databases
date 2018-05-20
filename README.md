@@ -172,7 +172,7 @@ To finish it, also do this command when it is done.
 
 ##### Protocol & Query
 Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
-Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation)
+Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation.md)
 
 ## Optimization
 See [Optimization](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Optimization.md)
