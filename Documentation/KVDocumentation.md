@@ -1,16 +1,20 @@
 # Redis
 
-## Running cli
+## Running a test cli
 ```
 docker run -it --rm --link redis:redis redis bash -c 'redis-cli -h redis'
 ```
 
 ### Books and authors
-We have used awk to append import commands for redis. Like below: This is just some tests to get a feel for how we import. This decision to do it like this, was what we could find was the fastest way to import data. Compared to other solutions as: Making a program to insert values from reading a CSV file. This way we can also stick to linux operating systems tools instead of having to write programs to do tasks like these.
+We have used awk to construct and append import commands for redis into a flat file. Like below: This is just some tests to get a feel for how we import. This decision to do it like this, was what we could find was the fastest way to import data. Compared to other solutions as: Making a program to insert values from reading a CSV file. This way we can also stick to linux operating systems tools instead of having to write programs to do tasks like these.
 
 add book titles
 ```
 awk -F, '{ print "SET", "\"book_title:"$1"\"", "\""$2"\"" }' TestBooks.csv
+```
+example:
+```
+SET book_title:15 "Moby dick"
 ```
 
 add book authos
@@ -63,6 +67,6 @@ SMEMBERS key (M_city-book:<id of city>)
 ```
 
 ### Structure
-Redis are able to have complex types with different fields and more. usualy a key-value store can handle this by having keys and values. But we have chossen er more straightforward solution, mostly because our experimentation showed a huge performance increase, downside is that there will occur some redundancy. But a cost we are willing to pay.
+Redis are able to have complex types with different fields and more. usualy a key-value store can handle this by having keys and values. But we have chossen er more straightforward solution, mostly because our experimentation showed a huge performance increase, downside is that there will occur some redundancy. But a cost we are willing to pay. This way, (In our opinion) it can also highlight some of the advantages and disadvantages of redis.
 
 
