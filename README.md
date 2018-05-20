@@ -35,7 +35,7 @@ This .csv file has been obtained from a program we've build to capture and store
 ## DBMS
 
 ### Key-Value store (Redis)
-##### Init & Import
+##### Init
 To get our redis instance up and running with importet data. Run these commands in any linux distribution with docker installed. Import script: [Here](https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/RedisUp.sh)
 ```
 wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/RedisUp.sh
@@ -64,9 +64,25 @@ Documentation & Reflection: [KVDocumentation](https://github.com/soft2018spring-
 ### Document Oriented (MongoDB)
 
 ##### Init
-In porgress.
+To get our mongodb instance up and running with imported data. Run these commands in any linux distribution with docker installed. Import script: [Here](https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/MongUp.bash).
+```
+wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/MongUp.bash | bash
+```
 ##### Structure
-In porgress.
+The structure of this mongo database is pretty much the same as the the csv files. ie. each line in the csv files correspond to a document. Each csv file has its own collection. cities, books, mentions are the collections each document is under.
+
+- cities
+```
+{ "_id" : ObjectId("5b01faf312b0434890db7f4d"), "Cityid" : 3039678, "Name" : "Ordino", "Latitude" : 42.55623, "Longitude" : 1.53319, "cc" : "AD", "Population" : 3066 }
+```
+- books
+```
+{ "_id" : ObjectId("5b01faf412b0434890dc3c7a"), "Bookid" : 1, "Title" : "The Declaration of Independence", "Author" : "Jefferson· Thomas" }
+```
+- mentions
+``` 
+{ "_id" : ObjectId("5b01faf412b0434890dcce1b"), "Bookid" : 2, "Cityid" : 1710116, "Amount" : 186 }
+```
 
 ##### Protocol & Query
 Query: [MongoDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/MongoDataAcessor.java)
