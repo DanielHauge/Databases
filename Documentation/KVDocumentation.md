@@ -69,4 +69,4 @@ SMEMBERS key (M_city-book:<id of city>)
 ### Structure
 Redis are able to have complex types with different fields and more. usualy a key-value store can handle this by having keys and values. But we have chossen er more straightforward solution, mostly because our experimentation showed a huge performance increase, downside is that there will occur some redundancy. But a cost we are willing to pay. This way, (In our opinion) it can also highlight some of the advantages and disadvantages of redis.
 
-
+A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good when handling very huge data sets. Getting a title from bookid 52525 takes no time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory, so its also costly to be able to get the title at O(1) every time.
