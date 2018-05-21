@@ -71,6 +71,24 @@ Redis are able to have complex types with different fields and more. usualy a ke
 
 A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good when handling very huge data sets. Getting a title from bookid 52525 takes no time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory, so its also costly to be able to get the title at O(1) every time.
 
+A good example of how idealy we would have done it:
+```
+127.0.0.1:6379> HSET b:1 title "Moby dick"
+(integer) 1
+127.0.0.1:6379> HSET b:1 author "Herman Melville"
+(integer) 1
+127.0.0.1:6379> HSET b:1 mentions "M_book-city:1"
+127.0.0.1:6379> HGETALL b:1
+1) "title"
+2) "Moby dick"
+3) "author"
+4) "Herman Melville"
+5) "mentions"
+6) "M_book-city:1"
+127.0.0.1:6379> HGET b:1 title
+"Moby dick"
+```
+
 ### Known issues
 We have encountered 12 issues with commands generated from the books.csv file. This results in a few missing authors or booktitles. We do currently not know exactly what is causing these errors. But it is highly theorized that the commands constructed by awk, makes invalid commands in a few instances. Similar to SQL injection, some titles or authors might contain special signs that might corrupt the SET commands consturcted. But considering time constraints, we have chosen to leave it as is. Idealy we would want to fix this, by making a custom configuration that whould be able to save the error log when using the redis pipe cli.
 
