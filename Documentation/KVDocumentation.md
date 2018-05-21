@@ -71,5 +71,39 @@ Redis are able to have complex types with different fields and more. usualy a ke
 
 A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good when handling very huge data sets. Getting a title from bookid 52525 takes no time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory, so its also costly to be able to get the title at O(1) every time.
 
+A good example of how idealy we would have done it:
+```
+127.0.0.1:6379> HSET b:1 title "Moby dick"
+(integer) 1
+127.0.0.1:6379> HSET b:1 author "Herman Melville"
+(integer) 1
+127.0.0.1:6379> HSET b:1 mentions "M_book-city:1"
+127.0.0.1:6379> HGETALL b:1
+1) "title"
+2) "Moby dick"
+3) "author"
+4) "Herman Melville"
+5) "mentions"
+6) "M_book-city:1"
+127.0.0.1:6379> HGET b:1 title
+"Moby dick"
+```
+
 ### Known issues
 We have encountered 12 issues with commands generated from the books.csv file. This results in a few missing authors or booktitles. We do currently not know exactly what is causing these errors. But it is highly theorized that the commands constructed by awk, makes invalid commands in a few instances. Similar to SQL injection, some titles or authors might contain special signs that might corrupt the SET commands consturcted. But considering time constraints, we have chosen to leave it as is. Idealy we would want to fix this, by making a custom configuration that whould be able to save the error log when using the redis pipe cli.
+
+### Analysing.
+When running the commandstats command in redis. This is what it shows. It shows that many of the commands are very fast. except for smsmebers. The reasoning is that there is alot of members in these typically. So it has to chow them all each time which takes some time. Geo calls are also taking a little bit more time than the other commands, such as get.
+```
+cmdstat_ping:calls=75,usec=105,usec_per_call=1.40
+cmdstat_georadiusbymember:calls=96,usec=7363,usec_per_call=76.70
+cmdstat_command:calls=1,usec=444,usec_per_call=444.00
+cmdstat_zrem:calls=59,usec=556,usec_per_call=9.42
+cmdstat_sadd:calls=3089090,usec=5369028,usec_per_call=1.74
+cmdstat_set:calls=122813,usec=187456,usec_per_call=1.53
+cmdstat_geopos:calls=769,usec=12964,usec_per_call=16.86
+cmdstat_geoadd:calls=48533,usec=209251,usec_per_call=4.31
+cmdstat_echo:calls=4,usec=5,usec_per_call=1.25
+cmdstat_smembers:calls=1552,usec=16784780,usec_per_call=10814.94
+cmdstat_get:calls=41820,usec=142379,usec_per_call=3.40
+```

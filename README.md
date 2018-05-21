@@ -3,6 +3,10 @@ This repository is for database things in a project for Software development (PB
 
 This part (database) is based on a project description which can be found [Here](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb)
 
+## Introduction
+- About what this project sets out to do. and some introduction stuff.
+
+
 ## Data
 
 #### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestCities.csv)
@@ -23,7 +27,7 @@ This .csv file has been obtained from a program we've build to capture and store
 
 It should also be noted, that we have removed all qoutes from title and authors, and set author and title to Unknown if we could not scrape anything nor find corresponding RDF file. Also we have changed coma's in titles and authors to middle dot. We have done this intetional. It is also known that the user will need to input the right middle dot to actully get to search for it, but with this in mind we will implement auto completion to help user with this exact inconvinience.
 
-Also, because of time constraints. We only support multiple authors as a single entity. ie. Books will contain 1 author, but might represent more authors. eg. "Isaac newton & Charles darwin". Idealy we would have wanted another table with authors and which books they wrote and so fourth. This would allow for many authors to have written a single book and so on.
+Also, because of time constraints. We only support multiple authors as a single entity. ie. Books will contain 1 author, but might represent more authors. eg. "Isaac newton & Charles darwin". Idealy we would have wanted another csv file with authors and also which books they wrote and so fourth. This would allow for many authors to have written a single book and so on. ie. Supporting multiple authors alot better.
 
 #### [BookMentions.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestMentions.csv)
 bookid | cityid | amount
@@ -57,7 +61,7 @@ M_book-city:\<bookid\> | [cityid1_count, cityid2_count, ... ] | SMEMBERS
 M_city-book:\<cityid\> | [bookid1_count, bookid2_count, ... ] | SMEMBERS
 geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [RedisDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/RedisDataAcessor.java)
 Documentation & Reflection: [KVDocumentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/KVDocumentation.md)
 
@@ -84,7 +88,7 @@ The structure of this mongo database is pretty much the same as the the csv file
 { "_id" : ObjectId("5b01faf412b0434890dcce1b"), "Bookid" : 2, "Cityid" : 1710116, "Amount" : 186 }
 ```
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [MongoDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/MongoDataAcessor.java)
 Documentation & Reflection: [MongoDB Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/DO-Documentation.md)
 
@@ -147,7 +151,7 @@ Foreign-key constraints:
     "mentions_cityid_fkey" FOREIGN KEY (cityid) REFERENCES cities(id)
 ```
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [PostgresDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/PostgresDataAcessor.java)
 Documentation & Reflection: [Postgres Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/SQLDocumentation.md)
 
@@ -170,7 +174,7 @@ To finish it, also do this command when it is done.
 - node:city contains cc, name, latitude, longitude and population
 
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
 Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation.md)
 
@@ -178,4 +182,24 @@ Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spr
 See [Optimization](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Optimization.md)
 
 ## Results
-- results here
+
+### Unoptimized benchmark
+
+See [neo4j.unoptimized](https://gist.github.com/DanielHauge/a589a3761677e40dbfb66d873ec5b8f1), [postgres.unoptimized](https://gist.github.com/DanielHauge/5bb32c49b04e2b35f59c8f2e61455be4), [redis.unoptimized](https://gist.github.com/DanielHauge/2fece941ad71ac1715d7497068194d72)
+
+Query | Average Redis | Median Redis | Average Mongo | Median Mongo | Average Postgres | Median Postgres | Average Neo4j | Median Neo4j
+-----:|:-------:|:---------:|:-------:|:---------:|:---------:|:---------:|:---------:|:---------
+getBooksByCity | 909ms | 627ms |  |  | 57ms | 56ms | 131ms | 76ms
+getCityBybook | 5ms | 5ms |  |  | 53ms | 56ms | 73ms | 82ms
+getAllCities | 44ms | 40ms |  |  | 72ms | 76ms | 201ms | 209ms
+getAllBooks | 47ms | 40ms |  |  | 55ms | 43ms | 222ms | 235ms
+getBookByAuthor | 4ms | 1ms |  |  | 4ms | 4ms | 33ms | 33ms
+getBooksInVicenety1 | 2048ms | 1591ms |  |  | 34ms | 33ms | 4795ms | 4613ms
+getBooksInVicenety2 | 1511ms | 410ms |  |  | 34ms | 34ms | 1438ms | 1260ms
+getBooksInVicenety3 | 1466ms | 307ms |  |  | 33ms |33ms | 746ms | 525ms
+getAllAuthors | 10ms | 10ms |  |  | 35ms | 25ms | 125ms | 124ms
+getCitiesBybook | 4ms | 5ms |  |  | 25ms | 32ms | 21ms | 20ms
+
+### Optimized benchmark
+
+## Conclusion and Discussion
