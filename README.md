@@ -61,7 +61,7 @@ M_book-city:\<bookid\> | [cityid1_count, cityid2_count, ... ] | SMEMBERS
 M_city-book:\<cityid\> | [bookid1_count, bookid2_count, ... ] | SMEMBERS
 geospartial | [cityid1, cityid2, ... ] | GEORADIUSBYMEMBERS
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [RedisDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/RedisDataAcessor.java)
 Documentation & Reflection: [KVDocumentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/KVDocumentation.md)
 
@@ -88,7 +88,7 @@ The structure of this mongo database is pretty much the same as the the csv file
 { "_id" : ObjectId("5b01faf412b0434890dcce1b"), "Bookid" : 2, "Cityid" : 1710116, "Amount" : 186 }
 ```
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [MongoDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/MongoDataAcessor.java)
 Documentation & Reflection: [MongoDB Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/DO-Documentation.md)
 
@@ -151,7 +151,7 @@ Foreign-key constraints:
     "mentions_cityid_fkey" FOREIGN KEY (cityid) REFERENCES cities(id)
 ```
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [PostgresDataAccessor](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/PostgresDataAcessor.java)
 Documentation & Reflection: [Postgres Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/SQLDocumentation.md)
 
@@ -174,7 +174,7 @@ To finish it, also do this command when it is done.
 - node:city contains cc, name, latitude, longitude and population
 
 
-##### Protocol & Query
+##### Documentation & Query
 Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
 Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation.md)
 
