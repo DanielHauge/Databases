@@ -3,6 +3,10 @@ This repository is for database things in a project for Software development (PB
 
 This part (database) is based on a project description which can be found [Here](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb)
 
+## Introduction
+- About what this project sets out to do. and some introduction stuff.
+
+
 ## Data
 
 #### [CitiesFinal.csv](https://github.com/soft2018spring-gruppe10/Databases/blob/master/TestCities.csv)
@@ -196,5 +200,6 @@ getBooksInVicenety3 | 1466ms | 307ms |  |  | 33ms |33ms | 746ms | 525ms
 getAllAuthors | 10ms | 10ms |  |  | 35ms | 25ms | 125ms | 124ms
 getCitiesBybook | 4ms | 5ms |  |  | 25ms | 32ms | 21ms | 20ms
 
+### Optimized benchmark
 
-
+## Conclusion and Discussion
