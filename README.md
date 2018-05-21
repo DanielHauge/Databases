@@ -184,7 +184,7 @@ See [Optimization](https://github.com/soft2018spring-gruppe10/Databases/blob/mas
 See [neo4j.unoptimized](https://gist.github.com/DanielHauge/a589a3761677e40dbfb66d873ec5b8f1), [postgres.unoptimized](https://gist.github.com/DanielHauge/5bb32c49b04e2b35f59c8f2e61455be4), [redis.unoptimized](https://gist.github.com/DanielHauge/2fece941ad71ac1715d7497068194d72)
 
 Query | Average Redis | Median Redis | Average Mongo | Median Mongo | Average Postgres | Median Postgres | Average Neo4j | Median Neo4j
------:|:-------:|:---------:|:-------:|:---------
+-----:|:-------:|:---------:|:-------:|:---------:|:---------:|:---------:|:---------:|:---------
 getBooksByCity | 909ms | 627ms |  |  | 57ms | 56ms | 131ms | 76ms
 getCityBybook | 5ms | 5ms |  |  | 53ms | 56ms | 73ms | 82ms
 getAllCities | 44ms | 40ms |  |  | 72ms | 76ms | 201ms | 209ms
