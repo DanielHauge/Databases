@@ -23,3 +23,8 @@ wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/
 docker cp Geofunction.sql psql:/root/Geofunction.sql
 docker exec psql sh -c "psql -U postgres < /root/Geofunction.sql"
 echo 'data imported'
+rm CitiesFinal.csv
+rm Books.csv
+rm BookMentions.csv
+rm Geofunction.sql
+echo 'Excess data deleted'
