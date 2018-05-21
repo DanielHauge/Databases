@@ -20,6 +20,8 @@ sleep 1s
 docker exec psql sh -c "psql -U postgres -c '\copy mentions FROM /root/BookMentions.csv CSV'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX cities_name_index ON cities USING btree("name");'"
 docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX book_author_index ON books USING btree("author");'"
+docker exec psql sh -c "psql -U postgres -c 'CREATE EXTENSION earthdistance CASCADE;'"
+docker exec psql sh -c "psql -U postgres -c 'CREATE INDEX latitude_longitude_index ON cities USING gist (ll_to_earth(latitude, longitude));'"
 wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/Geofunction.sql
 docker cp Geofunction.sql psql:/root/Geofunction.sql
 docker exec psql sh -c "psql -U postgres < /root/Geofunction.sql"
