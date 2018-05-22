@@ -5,7 +5,7 @@ sed -i 1d /root/CitiesFinal.csv
 sed 's/\([^,]*\),\([^,]*\),\([0-9.-]*\),\([0-9.-]*\),\([^,]*\),\([^,]*\)/{ Cityid: \1, Name: \2, cc: \5, pop: \6 location:{ type: "Point", coordinates: [ \4, \3 ] } }/' <CitiesFinal.csv >cities.json
 
 
-sudo docker run --name mongo -d mongo
+sudo docker run --name mongo -p 27017:27017 -d mongo
 
 sudo docker cp cities.json mongo:/root/cities.json
 sudo docker cp Books.csv mongo:/root/Books.csv
