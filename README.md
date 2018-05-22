@@ -185,23 +185,23 @@ See [Optimization](https://github.com/soft2018spring-gruppe10/Databases/blob/mas
 
 ### Unoptimized benchmark
 
-See [neo4j.unoptimized](https://gist.github.com/DanielHauge/a589a3761677e40dbfb66d873ec5b8f1), [postgres.unoptimized](https://gist.github.com/Retroperspect/c2dd41234a5e4be444eff9093506fa41), [redis.unoptimized](https://gist.github.com/DanielHauge/2fece941ad71ac1715d7497068194d72)
+See [neo4j.unoptimized](https://gist.github.com/DanielHauge/a589a3761677e40dbfb66d873ec5b8f1), [postgres.unoptimized](https://gist.github.com/Retroperspect/c2dd41234a5e4be444eff9093506fa41), [redis.unoptimized](https://gist.github.com/DanielHauge/2fece941ad71ac1715d7497068194d72), [mongo.unoptimized](https://gist.github.com/DanielHauge/578bf358e7433616dd88694641e6a0b5)
 
 Query | Average Redis | Median Redis | Average Mongo | Median Mongo | Average Postgres | Median Postgres | Average Neo4j | Median Neo4j
 -----:|:-------:|:---------:|:-------:|:---------:|:---------:|:---------:|:---------:|:---------
-getBooksByCity | 909ms | 627ms |  |  | 144ms | 113ms | 131ms | 76ms
-getCityBybook | 5ms | 5ms |  |  | 76ms | 76ms | 73ms | 82ms
-getAllCities | 44ms | 40ms |  |  | 46ms | 45ms | 201ms | 209ms
-getAllBooks | 47ms | 40ms |  |  | 48ms | 45ms | 222ms | 235ms
-getBookByAuthor | 4ms | 1ms |  |  | 4ms | 5ms | 33ms | 33ms
-getBooksInVicenety1 | 2048ms | 1591ms |  |  | 1142ms | 881ms | 4795ms | 4613ms
-getBooksInVicenety2 | 1511ms | 410ms |  |  | 1114ms | 827ms | 1438ms | 1260ms
-getBooksInVicenety3 | 1466ms | 307ms |  |  | 1098ms | 825ms | 746ms | 525ms
-getAllAuthors | 10ms | 10ms |  |  | 19ms | 19ms | 125ms | 124ms
-getCitiesBybook | 4ms | 5ms |  |  | 75ms | 75ms | 21ms | 20ms
+getBooksByCity | 909ms | 627ms | 37572ms | 25898ms | 144ms | 113ms | 131ms | 76ms
+getCityBybook | 5ms | 5ms | 743ms | 767ms | 76ms | 76ms | 73ms | 82ms
+getAllCities | 44ms | 40ms | 245ms | 255ms | 46ms | 45ms | 201ms | 209ms
+getAllBooks | 47ms | 40ms | 98ms | 84ms | 48ms | 45ms | 222ms | 235ms
+getBookByAuthor | 4ms | 1ms | 19ms | 18ms | 4ms | 5ms | 33ms | 33ms
+getBooksInVicenety1 | 2048ms | 1591ms | N/A | N/A | 1142ms | 881ms | 4795ms | 4613ms
+getBooksInVicenety2 | 1511ms | 410ms | N/A | N/A | 1114ms | 827ms | 1438ms | 1260ms
+getBooksInVicenety3 | 1466ms | 307ms | N/A | N/A | 1098ms | 825ms | 746ms | 525ms
+getAllAuthors | 10ms | 10ms | 101ms | 103ms | 19ms | 19ms | 125ms | 124ms
+getCitiesBybook | 4ms | 5ms | 745ms | 795ms | 75ms | 75ms | 21ms | 20ms
 
 ### Optimized benchmark
-See [neo4j.optimized](), [postgres.optimzed](https://gist.github.com/Retroperspect/a552b9b11e41e3cce8e3bc466cf3da51), [redis.optimized](), 
+See [neo4j.optimized](), [postgres.optimzed](https://gist.github.com/Retroperspect/a552b9b11e41e3cce8e3bc466cf3da51), [redis.optimized](), [Mongo.optimized]()
 
 Query | Average Redis | Median Redis | Average Mongo | Median Mongo | Average Postgres | Median Postgres | Average Neo4j | Median Neo4j
 -----:|:-------:|:---------:|:-------:|:---------:|:---------:|:---------:|:---------:|:---------
