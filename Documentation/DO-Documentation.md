@@ -56,3 +56,48 @@ db.cities.find({
     }
 })
 ```
+
+Vicenety aggregation example:
+```
+db.cities.aggregate([
+    {
+        $geoNear: {
+            near: { type: "Point", coordinates: [11.47, 52.38] },
+            distanceField: "dist.calculated",
+            maxDistance: 20000,
+            includeLocs: "location",
+            spherical: true
+        }
+    },
+    {
+        $lookup: 
+        {
+            from: "mentions",
+            localField: "Cityid",
+            foreignField: "Cityid",
+            as: "Ments"
+            
+        }
+    },
+    {
+        $lookup:
+        {
+            from: "books",
+            localField: "Ments.Bookid",
+            foreignField: "Bookid",
+            as: "Books"
+        }
+    }
+])
+```
+
+#### Performance
+We have index the following:
+
+```
+db.books.createIndex({"Bookid": 1})
+db.books.createIndex({"Author": 1})
+db.mentions.createIndex({"Bookid": 1})
+db.mentions.createIndex({"Cityid": 1})
+db.cities.createIndex({"Cityid": 1})
+```
