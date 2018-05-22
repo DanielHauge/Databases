@@ -1,7 +1,7 @@
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/CitiesFinal.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/Books.csv
 wget https://github.com/soft2018spring-gruppe10/Databases/raw/master/Data/BookMentions.csv
-sudo sed -i 1d /root/CitiesFinal.csv
+sudo sed -i 1d CitiesFinal.csv
 sudo sed 's/\([^,]*\),\([^,]*\),\([0-9.-]*\),\([0-9.-]*\),\([^,]*\),\([^,]*\)/{ Cityid: \1, Name: \2, cc: \5, pop: \6 location:{ type: "Point", coordinates: [ \4, \3 ] } }/' <CitiesFinal.csv >cities.json
 
 
