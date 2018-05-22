@@ -92,7 +92,8 @@ A good example of how idealy we would have done it with hashsets instead:
 ### Known issues
 We have encountered 12 issues with commands generated from the books.csv file. This results in a few missing authors or booktitles. We do currently not know exactly what is causing these errors. But it is highly theorized that the commands constructed by awk, makes invalid commands in a few instances. Similar to SQL injection, some titles or authors might contain special signs that might corrupt the SET commands consturcted. But considering time constraints, we have chosen to leave it as is. Idealy we would want to fix this, by making a custom configuration that whould be able to save the error log when using the redis pipe cli.
 
-- **Edit** Since, while working with other database. We found the issue, the cause was that some authors were empty. as in, we were able to find a empty author somewhere, we theorize it might have happened if the authors name was written not in utf8 but in something that the parser couldn't read.
+- **Edit: Fixed!** 
+Since, while working with other database. We found the issue, the cause was that some authors were empty. as in, we were able to find a empty author somewhere, we theorize it might have happened if the authors name was written not in utf8 but in something that the parser couldn't read.
 
 ### Analysing.
 When running the commandstats command in redis. This is what it shows. It shows that many of the commands are very fast. except for smsmebers. The reasoning is that there is alot of members in these typically. So it has to chow them all each time which takes some time. Geo calls are also taking a little bit more time than the other commands, such as get.
