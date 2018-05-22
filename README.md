@@ -205,15 +205,15 @@ See [neo4j.optimized](), [postgres.optimzed](https://gist.github.com/Retroperspe
 
 Query | Average Redis | Median Redis | Average Mongo | Median Mongo | Average Postgres | Median Postgres | Average Neo4j | Median Neo4j
 -----:|:-------:|:---------:|:-------:|:---------:|:---------:|:---------:|:---------:|:---------
-getBooksByCity | x | x | x | x | 125ms | 108ms | x | x
-getCityBybook | x | x | x | x | 67ms | 66ms | x | x
-getAllCities | x | x | x | x | 47ms | 46ms | x | x
-getAllBooks | x | x | x | x | 50ms | 44ms | x | x
-getBookByAuthor | x | x | x | x | 4ms | 4ms | x | x
+getBooksByCity | x | x | 203ms | 130ms | 125ms | 108ms | x | x
+getCityBybook | x | x | 7ms | 4ms | 67ms | 66ms | x | x
+getAllCities | x | x | 252ms | 244ms | 47ms | 46ms | x | x
+getAllBooks | x | x | 117ms | 121ms | 50ms | 44ms | x | x
+getBookByAuthor | x | x | 3ms | 2ms | 4ms | 4ms | x | x
 getBooksInVicenety1 | x | x | x | x | 426ms | 160ms | x | x
 getBooksInVicenety2 | x | x | x | x | 403ms | 107ms | x | x
 getBooksInVicenety3 | x | x | x | x | 387ms | 104ms | x | x
-getAllAuthors | x | x | x | x | 19ms | 19ms | x | x
-getCitiesBybook | x | x | x | x | 68ms | 68ms | x | x
+getAllAuthors | x | x | 111ms | 107ms | 19ms | 19ms | x | x
+getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | x | x
 
 ## Conclusion and Discussion
