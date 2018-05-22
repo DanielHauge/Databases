@@ -33,7 +33,7 @@ sed 's/\([^,]*\),\([^,]*\),\([0-9.-]*\),\([0-9.-]*\),\([^,]*\),\([^,]*\)/{ Cityi
 - \([^,]*\), = find the next string before , and use it as [5]
 - \([^,]*\) = find the next string and use it as [6]
 - /{ Cityid: \1, Name: \2, cc: \5, pop: \6 location:{ type: "Point", coordinates: [ \4, \3 ] } }/' = Now format to json, and using according valid geoJson structure with location -> type:point, coords:[x,y].
-- <CitiesFinal.csv = use CitiesFinal.csv as source for the operation
-- >cities.json = write it to file cities.json
+- < CitiesFinal.csv = use CitiesFinal.csv as source for the operation
+- \>cities.json = write it to file cities.json
 
 
