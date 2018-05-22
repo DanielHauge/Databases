@@ -36,4 +36,23 @@ sudo sed 's/\([^,]*\),\([^,]*\),\([0-9.-]*\),\([0-9.-]*\),\([^,]*\),\([^,]*\)/{ 
 - ```< CitiesFinal.csv``` = use CitiesFinal.csv as source for the operation
 - ```> cities.json``` = write it to file cities.json
 
+#### Index
+Now with the data correctly in database with the valid Geojson format.
+[![https://gyazo.com/a745489f7360de58219f79cf36124694](https://i.gyazo.com/a745489f7360de58219f79cf36124694.png)](https://gyazo.com/a745489f7360de58219f79cf36124694)
 
+We have to geoindex it. We can do this by the following command:
+```
+db.cities.createIndex({ location: "2dsphere" })
+```
+
+Why do we want to index it?. The answer can be found here [Lecture notes](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/lecture_notes/03-MongoDB_Modelling.ipynb). But simply because it makes the lives of programmers easier, also we don't have to calculate the correctly spherical distance from point to point on every query.
+
+#### Query
+Now we can query geoWithin a specific location. as follows:
+```
+db.cities.find({
+    location: { $geoWithin: { $centerSphere: [
+        [ 11.47, 52.38 ] , 20000 / 6378100.0 ] }
+    }
+})
+```
