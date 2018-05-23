@@ -284,11 +284,13 @@ getCityBybook | x | x | 7ms | 4ms | 67ms | 66ms | 37ms | 35ms
 getAllCities | x | x | 252ms | 244ms | 47ms | 46ms | 122ms | 121ms
 getAllBooks | x | x | 117ms | 121ms | 50ms | 44ms | 99ms | 101ms
 getBookByAuthor | x | x | 3ms | 2ms | 4ms | 4ms | 12ms | 13ms
-getBooksInVicenety1 | x | x | x | x | 426ms | 160ms | 446ms | 121ms
-getBooksInVicenety2 | x | x | x | x | 403ms | 107ms | 434ms | 72ms
-getBooksInVicenety3 | x | x | x | x | 387ms | 104ms | 448ms | 74ms
+getBooksInVicenety1 | x | x | 146ms | 114ms | 426ms | 160ms | 446ms | 121ms
+getBooksInVicenety2 | x | x | 101ms | 42ms | 403ms | 107ms | 434ms | 72ms
+getBooksInVicenety3 | x | x | 90ms | 31ms | 387ms | 104ms | 448ms | 74ms
 getAllAuthors | x | x | 111ms | 107ms | 19ms | 19ms | 63ms | 63ms
 getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
+
+**Important Note:** mongodb doesn't have compatible driver for java to do geospartial queries in aggregation. Hence results have been gained by running a manual benchmark in robo 3T. They still use same test queries. but are manually written. Testsreults [Here]()
 
 ## Conclusion and Discussion
 - What does the results say?.
