@@ -17,9 +17,12 @@ db.mentions.aggregate([
     }
 ])
 ```
+## Datastructure.
+The structure of this mongo database is pretty much the same as the the csv files. ie. each line in the csv files correspond to a document. Each csv file has its own collection. cities, books, mentions are the collections each document is under. However it was troublesome to work with spartial queries this way, hence we did some refractoring of the data model.
+
 ## Handling geospartial tasks.
 The data structure most uphold the geoJson format found in this [link](https://docs.mongodb.com/manual/reference/geojson/).
-Therefor we have been forced to refractor the data which contained the geospartial data. we have done this with a sed command:
+Therefor we have been inticed to refractor the data which contained the geospartial data. we have done this with a sed command:
 ```
 sudo sed 's/\([^,]*\),\([^,]*\),\([0-9.-]*\),\([0-9.-]*\),\([^,]*\),\([^,]*\)/{ "Cityid" : \1, "Name" : \"\2\", "CC" : \"\5\", "pop" : \6, "location" : { "type" : "Point", "coordinates" : [ \4, \3 ] } }/' < CitiesFinal.csv > cities.json
 ```
