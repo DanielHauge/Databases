@@ -304,9 +304,18 @@ getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 ## Conclusion and Discussion
 To make it more clear, we can infer which database is the quickest for each query:
 
-Query | getBooksByCity | getCityBybook | getAllCities | getAllBooks | getBookByAuthor | getBooksInVicenety1 | getBooksInVicenety2 | getBooksInVicenety3 | getAllAuthors | getCitiesBybook
---------:|:------:|:--------:|:-------:|:--------:|:-------:|:--------:|:-------:|:--------:|:-------:|:--------
-Winner | 
+Query | Average Winner |
+-----:|:-------:|:---------:
+getBooksByCity | Neo4j | 
+getCityBybook | redis - mongo |
+getAllCities | redis |
+getAllBooks | redis |
+getBookByAuthor | redis - mongo - postgres | x | 
+getBooksInVicenety1 | mongo | 
+getBooksInVicenety2 | mongo |
+getBooksInVicenety3 | mongo |
+getAllAuthors | redis | 
+getCitiesBybook | redis - mongo | 
 
 - What does the results say?.
 - What can we conclude from the benchmark.
