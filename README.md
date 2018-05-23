@@ -161,10 +161,15 @@ To get our neo4j instance up and running with importet data. Run this command in
 ```
 wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/Neo4jUp.sh | bash
 ```
-To finish it, also do this command when it is done.
+To import data, also do this command when it is done.
 ```
 ./Neo4jImport.sh
 ```
+To optimize the database after the data has been imported this command can be used:
+```
+sudo docker exec -it neo4j sh -c 'cat /root/OptimNeo4j.cypher | bin/cypher-shell --format plain'
+```
+
 
 ##### Structure
 [![https://gyazo.com/28b62f84039947ac53d8657e52f0af53](https://i.gyazo.com/28b62f84039947ac53d8657e52f0af53.png)](https://gyazo.com/28b62f84039947ac53d8657e52f0af53)
