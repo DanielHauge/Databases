@@ -148,7 +148,7 @@ The structure of this mongo database is pretty much the same as the the csv file
 
 - cities
 ```
-{ "_id" : ObjectId("5b01faf312b0434890db7f4d"), "Cityid" : 3039678, "Name" : "Ordino", "Latitude" : 42.55623, "Longitude" : 1.53319, "cc" : "AD", "Population" : 3066 }
+{ "_id" : ObjectId("5b0595794b6d69db6db50e9e"), "Cityid" : 2618425, "Name" : "Copenhagen", "CC" : "DK", "pop" : 1153615, "location" : { "type" : "Point", "coordinates" : [ 12.56553, 55.67594 ] } }
 ```
 - books
 ```
