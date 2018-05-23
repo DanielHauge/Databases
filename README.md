@@ -326,17 +326,15 @@ Mongo | 103,7ms | 79ms
 Postgres | 159,6ms | 76,7ms
 Neo4j | 174,9ms | 86,9ms
 
-We have 2 perspectives here. One with taking all the vicenety queries into consideration, and one where we only take one of them(20km one) into consideration (unbaised one). However we can form some idea of which database might be a prefered one if we consider speed. If we knew that we are going to make alot of geospartial vicenety queries, we can definitly see from our results that mongoDB is a good choice with our setup. However if we know that we are going to query "All books, cities, authors" Then mongoDB might not be a so good idea. In that case redis and postgress is a better option. If we know that we are going to make alot of queries based on relationships as "Mentions" then neo4j might be a better option, but maybe more if we wanted to do deeper relationship searches. If we know that were are going to query different queries equally as much and want the least amount of time overall, postgres would be a good choice followed closely by mongoDB.
+We have 2 perspectives here. One with taking all the vicenety queries into consideration, and one where we only take one of them(20km one) into consideration (unbaised one). However we can form some idea of which database might be a prefered one if we consider speed. If we knew that we are going to make alot of geospartial vicenety queries, we can definitly see from our results that mongoDB is a good choice with our setup. However if we know that we are going to query "All books, cities, authors" Then mongoDB might not be a so good idea. In that case redis and postgress is a better option. If we know that we are going to make alot of queries based on relationships as "Mentions" then neo4j might be a better option, but maybe more if we wanted to do deeper relationship searches. If we know that were are going to query different queries equally as much and want the least amount of time overall, postgres would be a good choice followed closely by mongoDB. All in all, the different databases all come with they strenghs and weaknesses in different areas.
 
-These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, noticably the language used<sup>[2]</sup>, 
+These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, most noticably the language used/Implementation (java), the data, end-user queries but also many other factors. eg. If we had parsed the data better to be able to handle multiple authors per book, a engine such as neo4j could have a node dedicated to authors and a relationship which could be "Contributed to". This way we could query based on labelscan on the author instead of all the books. This goes for all databases except redis. But neo4j would be faster at getting book by author by doing a label scan on authors with a specific name and then find all books which it has a "Contributed to" relationship with. In addition postgres would also be faster at getting books by author, since there is no need for a wildcard search (regex), so that it can use a index and be super quick<sup>2</sup>. The language used is also of influence of the results, these benchmarks are made mostly of a implementation written in java. Java has been known for being slow, that is not 100% true any longer <sup>[3]</sup>. However as also stated, most libraries are often written for "correctness" and readability and not performance, this might definitly have had a influence in the results. These specific end-user queries also had a finger in the game when it comes to deciding the results. Most of the queries weren't realy playing to neo4j's merits. The queries were also based on these well defined strict entities such as city and book and how a book mentions a city.
 
+- Was the data biased to any database?
 
-- What does the results say?.
-- What can we conclude from the benchmark.
-- What have influenced the results?
-- How was the data model? How well did it fit the 4 databases?, Was it biased towards any of them? 
-- What could have been done to get better and more accurate results?
-- Does the results reflect other peoples results in "Pro's and Cons" of each of the database paradigms?
+These results are adequate estimates in our opinion, but to get better and accurate results. More prototype evaluation is needed, on a bigger sample size and with more end-user queries in more languages. What we could have done to make the results more precise is to have done more benchmark queries, ie. Make 100 benchmark cases and run the queries 5 times each, adding up to a total of 5000 queries.
+
+The pro's and Con's we have experienced are similar to what other people have experienced/concluded: [KV-store](http://www.dotnetfunda.com/interviews/show/6385/what-are-the-pros-and-cons-of-using-key-value-store), as we've also experienced. Key-value stores doesn't feel as if meant to do these kinds of queries. [Document-oriented](https://halls-of-valhalla.org/beta/articles/the-pros-and-cons-of-mongodb,45/), since this is 4 years ago we haven't experienced the con's in such a heavy degree. But we did experience the spotty documentation, and missing driver aggregation implementation from it being a young DBMS, but also experienced it's speed and flexibility. [SQL](http://www.cems.uwe.ac.uk/~pchatter/resources/html/rdb_strengths_weaknesses.html), poor representation of 'real world" entities and their relationships. Entities are fragmented into smaller relations though the process of normalisation. This results in a inefficient design, as many joins may be required to recover data about that entity. This is a con but can also be seen as  a pro. It is limiting redundancies and avoid update anomalies. We did not normalise authors which resulted in redundancies and potential update anomalies if we were to edit any of the authors(Which we didn't need for this). [Graph-based](https://www.quora.com/What-are-the-pros-and-cons-of-using-a-graph-database), we've also experienced that neo4j is alot faster at searching based on relationships, but also that it requires to new query language like cypher. Also oher graph based databases you'd need to learn a new language, and they might not be declarative or they might lack the capability to optimize queries properly.
 
 ### Recommendation
 4. factors in recommendations: 
@@ -349,7 +347,9 @@ These results are gathered, but our own belief is that they do not proove anythi
 
 
 
-###### Footnotes
-- [1]: https://github.com/DanielHauge/DBEX9
-- [2]: (Java)
 
+
+
+[1]: https://github.com/DanielHauge/DBEX9
+[2]: https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Postgres%20Documentation.ipynb
+[3]: https://stackoverflow.com/questions/2163411/is-java-really-slow
