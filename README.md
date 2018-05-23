@@ -10,7 +10,7 @@ This projects goal is to build an application that queries different databases f
 ### Initial Problem statement
 Which database paradigm is best?
 
-Given end-userqueries found in [Project description](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb), which database management system form the 4 database paradigm is best at the given task?.
+Given end-userqueries found in [Project description](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb), which database management system form the 4 database paradigm is best at the given task?, but also in general?
 
 Considering what is best requires some parameters. Given the parameters: 
 - Speed
@@ -19,8 +19,15 @@ Considering what is best requires some parameters. Given the parameters:
 - Compability
 
 ### Hypothesis
-- Do we need a hypothesis?
+We expect graph based databases to be less fast than other databases (particularly sql based). Reasoning is from our own experience we gathered [1](https://github.com/DanielHauge/DBEX9). We also expect sql to be very easy to use and compatible with most languages, but less future proof than other dbms. We expect key-value store to be very fast at simple queries and tasks, but lack behind when it comes to aggregations and bigger or more complex queries. We don't realy have a good impression and lack knowledge and experience with document oriented databases to expect anything in particular. 
 
+We expect to experience that databases varies in all catergories. That each paradigm come with it's highlights and challenges in all areas. Which makes us expect we have to recommend a database system depending on alot of factors, depending on how requirements fit a given paradigms strengh or it's weakness.
+
+### Plan
+To put the hypothesis to the grind stone, we will download all the books from the guttenberg project with the [download script](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/tree/master/book_download) from the project description, in a vagrant virtual machine. And the RDF meta data files aswell. Build a Bookparser application that can parse the books, and generate csv files for books and use the stanfords entity recognizer to find potential city mentions and therafter crossreference them with data from http://geonames.org. Citydata from geonames. Books and mention data parsed from many book files (.txt and .rdf) from guttenberg. This will be the foundation for the data we will use in the databases. 
+
+We will construct 4 scripts to initialize a database from each paradigm, import the data and optimize with indexes and such.
+We will build an API that can interact and switch database. This API will do the end-user queries. We will implement a benchmark test to be able to extract some information about speed of the databases, but also implement a logging systme, to get a more hands-on feel for how fast it is going. While we also take notice of things such as: how easy it was to implement an interface for the database, how compatible the database is with the queries and also how easy a refractoring or database migration would be.
 
 ## Data
 
