@@ -6,4 +6,4 @@ sudo docker restart neo4j
 sudo sleep 1s
 sudo wget https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/OptimNeo4j.cypher
 sudo docker cp OptimNeo4j.cypher neo4j:/root/OptimNeo4j.cypher
-sudo docker exec neo4j sh -c 'cat /root/OptimNeo4j.cypher | bin/cypher-shell -u neo4j -p class --format plain'
+echo "sudo docker exec -it neo4j sh -c 'cat /root/OptimNeo4j.cypher | bin/cypher-shell --format plain'"

@@ -69,9 +69,9 @@ SMEMBERS key (M_city-book:<id of city>)
 ### Structure
 Redis are able to have complex types with different fields and more. usualy a key-value store can handle this by having values represent keys. But we have chossen er more straightforward solution, mostly because our experimentation showed a huge performance increase, downside is that there will occur some redundancy, and if we were to update anything it would cause a update anomaly. But a cost we are willing to pay, mostly also because we know we aren't going to update it since it's a "shelf" project. This way, (In our opinion) it can also highlight some of the advantages and disadvantages of redis better.
 
-A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good when handling very huge data sets. Getting a title from bookid 52525 takes no time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory, so its also costly to be able to get the title at O(1) every time.
+A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good, since it will behave mostly the same regardless of how much data there is, runtime wise. Getting a title from bookid 52525 takes very little time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory (By default), so its also costly to be able to get the title at O(1) every time.
 
-A good example of how idealy we would have done it with hashsets instead:
+Regarding Structure. A good example of how idealy we would have done it with hashsets instead:
 ```
 127.0.0.1:6379> HSET b:1 title "Moby dick"
 (integer) 1
@@ -96,7 +96,7 @@ We have encountered 12 issues with commands generated from the books.csv file. T
 Since, while working with other database. We found the issue, the cause was that some authors were empty. as in, we were able to find a empty author somewhere, we theorize it might have happened if the authors name was written not in utf8 but in something that the parser couldn't read.
 
 ### Analysing.
-When running the commandstats command in redis. This is what it shows. It shows that many of the commands are very fast. except for smsmebers. The reasoning is that there is alot of members in these typically. So it has to chow them all each time which takes some time. Geo calls are also taking a little bit more time than the other commands, such as get.
+When running the commandstats command in redis. This is what it shows. It shows that many of the commands are very fast. except for smebers. The reasoning is that there is alot of members in these typically. So it has to chow them all each time which takes some time. Geo calls are also taking a little bit more time than the other commands, such as get.
 ```
 cmdstat_ping:calls=75,usec=105,usec_per_call=1.40
 cmdstat_georadiusbymember:calls=96,usec=7363,usec_per_call=76.70
@@ -110,3 +110,32 @@ cmdstat_echo:calls=4,usec=5,usec_per_call=1.25
 cmdstat_smembers:calls=1552,usec=16784780,usec_per_call=10814.94
 cmdstat_get:calls=41820,usec=142379,usec_per_call=3.40
 ```
+
+As for memory usage: it is using ~187mb to store all the data.
+```
+used_memory:196191848
+used_memory_human:187.10M
+used_memory_rss:217341952
+used_memory_rss_human:207.27M
+used_memory_peak:199704008
+used_memory_peak_human:190.45M
+used_memory_peak_perc:98.24%
+used_memory_overhead:10630110
+used_memory_startup:786448
+used_memory_dataset:185561738
+used_memory_dataset_perc:94.96%
+total_system_memory:6156988416
+total_system_memory_human:5.73G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+mem_fragmentation_ratio:1.11
+mem_allocator:jemalloc-4.0.3
+active_defrag_running:0
+lazyfree_pending_objects:0
+```
+
+**Important NOTE!**
+We have not enabled persistance data. This means this DBMS violates the ACID principles. Mainly the Durability principle. Meaning, if something goes wrong, powerout, crash or anything. All data is lost.
