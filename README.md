@@ -302,20 +302,20 @@ getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 **Important Note:** mongodb doesn't have compatible driver for java to do geospartial queries in aggregation. Hence results have been gained by running a manual benchmark in robo 3T. They still use same test queries. but are manually written. Testsreults [Here]()
 
 ## Conclusion and Discussion
-To make it more clear, we can infer which database is the quickest for each query:
+To make it more clear, we can infer which database is the quickest in term of runtime speed for each query:
 
-Query | Average Winner |
------:|:-------:
-getBooksByCity | Neo4j | 
-getCityBybook | redis - mongo |
-getAllCities | redis |
-getAllBooks | redis |
-getBookByAuthor | redis - mongo - postgres | x | 
-getBooksInVicenety1 | mongo | 
-getBooksInVicenety2 | mongo |
-getBooksInVicenety3 | mongo |
-getAllAuthors | redis | 
-getCitiesBybook | redis - mongo | 
+Query | Winner | Margin
+-----:|:-------:|:------
+getBooksByCity | Neo4j | ~50ms : Postgress
+getCityBybook | redis | ~1ms : mongodb
+getAllCities | redis | ~3ms : postgres
+getAllBooks | redis | ~3ms : postgres
+getBookByAuthor | Mongodb | ~1ms : postgres, redis 
+getBooksInVicenety1 | mongo | ~300ms : postgres,neo4j
+getBooksInVicenety2 | mongo | ~325ms : postgres,neo4j
+getBooksInVicenety3 | mongo | ~350ms : postgres,neo4j
+getAllAuthors | redis | ~10ms : postgres
+getCitiesBybook | redis | ~2ms : mongoDB
 
 - What does the results say?.
 - What can we conclude from the benchmark.
