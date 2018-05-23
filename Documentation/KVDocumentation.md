@@ -69,9 +69,9 @@ SMEMBERS key (M_city-book:<id of city>)
 ### Structure
 Redis are able to have complex types with different fields and more. usualy a key-value store can handle this by having values represent keys. But we have chossen er more straightforward solution, mostly because our experimentation showed a huge performance increase, downside is that there will occur some redundancy, and if we were to update anything it would cause a update anomaly. But a cost we are willing to pay, mostly also because we know we aren't going to update it since it's a "shelf" project. This way, (In our opinion) it can also highlight some of the advantages and disadvantages of redis better.
 
-A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good when handling very huge data sets. Getting a title from bookid 52525 takes no time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory, so its also costly to be able to get the title at O(1) every time.
+A very good advantage we've encountered by working with redis is most it's operations take O(1) in time complexity. Which is very good, since it will behave mostly the same regardless of how much data there is, runtime wise. Getting a title from bookid 52525 takes very little time for redis, where'as other DBMS might need to search alot of data before finding the title, allthough indexes can help alot in finding the title, redis doesn't need it. In the other hand redis has all it's data in memory (By default), so its also costly to be able to get the title at O(1) every time.
 
-A good example of how idealy we would have done it with hashsets instead:
+Regarding Structure. A good example of how idealy we would have done it with hashsets instead:
 ```
 127.0.0.1:6379> HSET b:1 title "Moby dick"
 (integer) 1
@@ -96,7 +96,7 @@ We have encountered 12 issues with commands generated from the books.csv file. T
 Since, while working with other database. We found the issue, the cause was that some authors were empty. as in, we were able to find a empty author somewhere, we theorize it might have happened if the authors name was written not in utf8 but in something that the parser couldn't read.
 
 ### Analysing.
-When running the commandstats command in redis. This is what it shows. It shows that many of the commands are very fast. except for smsmebers. The reasoning is that there is alot of members in these typically. So it has to chow them all each time which takes some time. Geo calls are also taking a little bit more time than the other commands, such as get.
+When running the commandstats command in redis. This is what it shows. It shows that many of the commands are very fast. except for smebers. The reasoning is that there is alot of members in these typically. So it has to chow them all each time which takes some time. Geo calls are also taking a little bit more time than the other commands, such as get.
 ```
 cmdstat_ping:calls=75,usec=105,usec_per_call=1.40
 cmdstat_georadiusbymember:calls=96,usec=7363,usec_per_call=76.70
