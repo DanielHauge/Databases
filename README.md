@@ -144,6 +144,7 @@ To get our mongodb instance up and running with imported data. Run these command
 wget -O - https://raw.githubusercontent.com/soft2018spring-gruppe10/Databases/master/DBScripts/MongUp.bash | bash
 ```
 ##### Structure
+Collections with document examples:
 - cities
 ```
 { "_id" : ObjectId("5b0595794b6d69db6db50e9e"), "Cityid" : 2618425, "Name" : "Copenhagen", "CC" : "DK", "pop" : 1153615, "location" : { "type" : "Point", "coordinates" : [ 12.56553, 55.67594 ] } }
