@@ -304,7 +304,7 @@ getCitiesBybook | 4ms | 5ms | 745ms | 795ms | 75ms | 75ms | 21ms | 20ms
 **Note:** MongoDB cannot query geospartial data without index. [Proof / Picture of error without index](https://i.gyazo.com/c7773dc00dcc617818e64a72d8959ebe.png)
 
 ### Optimized benchmark
-See [neo4j.optimized](https://gist.github.com/Retroperspect/0f1a880ca44f932d21225dd9e5f379f4), [postgres.optimzed](https://gist.github.com/Retroperspect/a552b9b11e41e3cce8e3bc466cf3da51), [Mongo.optimized](https://gist.github.com/DanielHauge/2fb10e157b2616681d449923230e0949)
+See [neo4j.optimized](https://gist.github.com/Retroperspect/0f1a880ca44f932d21225dd9e5f379f4), [postgres.optimzed](https://gist.github.com/Retroperspect/a552b9b11e41e3cce8e3bc466cf3da51), [Mongo.optimized](https://gist.github.com/DanielHauge/2fb10e157b2616681d449923230e0949), [Mongo.GeoManualBenchmark](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/MongoDBVicenetyBenchmark.txt)
 
 Query | Average Redis | Median Redis | Average Mongo | Median Mongo | Average Postgres | Median Postgres | Average Neo4j | Median Neo4j
 -----:|:-------:|:---------:|:-------:|:---------:|:---------:|:---------:|:---------:|:---------
