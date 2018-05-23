@@ -306,16 +306,16 @@ To make it more clear, we can infer which database is the quickest in term of ru
 
 Query | Winner | Margin
 -----:|:-------:|:------
-getBooksByCity | Neo4j | ~50ms : Postgress
+getBooksByCity | neo4j | ~50ms : Postgress
 getCityBybook | redis | ~1ms : mongodb
 getAllCities | redis | ~3ms : postgres
 getAllBooks | redis | ~3ms : postgres
-getBookByAuthor | Mongodb | ~1ms : postgres, redis 
+getBookByAuthor | mongo | ~1ms : postgres, redis 
 getBooksInVicenety1 | mongo | ~300ms : postgres,neo4j
 getBooksInVicenety2 | mongo | ~325ms : postgres,neo4j
 getBooksInVicenety3 | mongo | ~350ms : postgres,neo4j
 getAllAuthors | redis | ~10ms : postgres
-getCitiesBybook | redis | ~2ms : mongoDB
+getCitiesBybook | redis | ~2ms : mongo
 
 - What does the results say?.
 - What can we conclude from the benchmark.
