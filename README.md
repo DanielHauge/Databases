@@ -307,4 +307,6 @@ getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 - Future proof(How usefull is it to learn this dbms, most RDBMS use same language, so its quite usefull if you want to switch to another RDMS, is the DBMS refractor friendly?)
 - What application is being built? ( Each DBMS has its pro's and con's, we recommend the database that support the applications requirements the best, also which language?, is it well compatible with the language used? )
 
+- Would it have been different if requirements also included to write to the database?
+
 
