@@ -81,6 +81,31 @@ public class CityWithCords extends DataSerializer implements DataObject {
     }
 }
 ```
+Which in json translates to:
+```json
+{
+  "bookId": 123,
+  "bookTitle": "Some Title",
+  "cities": [
+    {
+      "cityName": "Copenhagen",
+      "latitude": 1.213312,
+      "longitude": 1.21321
+    },
+    {
+      "cityName": "Stockholm",
+      "latitude": 1.213312,
+      "longitude": 1.21321
+    },
+    {
+      "cityName": "Amsterdam",
+      "latitude": 1.213312,
+      "longitude": 1.21321
+    },
+    {..}
+  ]
+}
+```
 
 ## DBMS
 
