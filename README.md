@@ -183,7 +183,9 @@ sudo docker exec -it neo4j sh -c 'cat /root/OptimNeo4j.cypher | bin/cypher-shell
 Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/main/java/DataAcessors/Neo4jDataAcessor.java)
 Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation.md)
 
-## Results
+## Evaluation
+
+### Evaluation/Benchmark setup
 
 ### Unoptimized benchmark
 
@@ -219,3 +221,14 @@ getAllAuthors | x | x | 111ms | 107ms | 19ms | 19ms | 63ms | 63ms
 getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 
 ## Conclusion and Discussion
+- What does the results say?.
+- What can we conclude from the benchmark.
+- What have influenced the results?
+- How was the data model? How well did it fit the 4 databases?, Was it biased towards any of them? 
+- What could have been done to get better and more accurate results?
+- Does the results reflect other peoples results in "Pro's and Cons" of each of the database paradigms?
+
+### Recommendation
+- 3. factors in recommendations: Speed, Ease of use(How comfy is the DBMS, is it easy to learn), Future proof(How usefull is it to learn this dbms, most RDBMS use same language, so its quite usefull if you want to switch to another RDMS, is the DBMS refractor friendly?)
+
+
