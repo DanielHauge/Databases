@@ -229,6 +229,10 @@ getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 - Does the results reflect other peoples results in "Pro's and Cons" of each of the database paradigms?
 
 ### Recommendation
-- 3. factors in recommendations: Speed, Ease of use(How comfy is the DBMS, is it easy to learn), Future proof(How usefull is it to learn this dbms, most RDBMS use same language, so its quite usefull if you want to switch to another RDMS, is the DBMS refractor friendly?)
+4. factors in recommendations: 
+- Speed (Query runtime) 
+- Ease of use(How comfy is the DBMS, is it easy to learn)
+- Future proof(How usefull is it to learn this dbms, most RDBMS use same language, so its quite usefull if you want to switch to another RDMS, is the DBMS refractor friendly?)
+- What application is being built? ( Each DBMS has its pro's and con's, we recommend the database that support the applications requirements the best )
 
 
