@@ -19,7 +19,7 @@ Considering what is best requires some parameters. Given the parameters:
 - Compability
 
 ### Hypothesis
-We expect graph based databases to be less fast than other databases (particularly sql based). Reasoning is from our own experience we gathered [1](https://github.com/DanielHauge/DBEX9). We also expect sql to be very easy to use and compatible with most languages, but less future proof than other dbms in terms of flexibility. We expect key-value store to be very fast at simple queries and tasks, but lack behind when it comes to aggregations and bigger or more complex queries. We don't realy have a good impression and lack knowledge and experience with document oriented databases to expect anything in particular. 
+We expect graph based databases to be less fast than other databases (particularly sql based). Reasoning is from our own experience we gathered <sup>[1]</sup>. We also expect sql to be very easy to use and compatible with most languages, but less future proof than other dbms in terms of flexibility. We expect key-value store to be very fast at simple queries and tasks, but lack behind when it comes to aggregations and bigger or more complex queries. We don't realy have a good impression and lack knowledge and experience with document oriented databases to expect anything in particular. 
 
 We expect to experience that databases varies in all catergories. That each paradigm come with it's highlights and challenges in all areas. Which makes us expect we have to recommend a database system depending on alot of factors, depending on how requirements fit a given paradigms strengh or it's weakness.
 
@@ -328,7 +328,7 @@ Neo4j | 174,9ms | 86,9ms
 
 We have 2 perspectives here. One with taking all the vicenety queries into consideration, and one where we only take one of them(20km one) into consideration (unbaised one). However we can form some idea of which database might be a prefered one if we consider speed. If we knew that we are going to make alot of geospartial vicenety queries, we can definitly see from our results that mongoDB is a good choice with our setup. However if we know that we are going to query "All books, cities, authors" Then mongoDB might not be a so good idea. In that case redis and postgress is a better option. If we know that we are going to make alot of queries based on relationships as "Mentions" then neo4j might be a better option, but maybe more if we wanted to do deeper relationship searches. If we know that were are going to query different queries equally as much and want the least amount of time overall, postgres would be a good choice followed closely by mongoDB.
 
-These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, noticably the language used<sup>1</sup>, 
+These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, noticably the language used<sup>[2]</sup>, 
 
 
 - What does the results say?.
@@ -349,4 +349,7 @@ These results are gathered, but our own belief is that they do not proove anythi
 
 
 
-1: Java
+###### Footnotes
+- [1]: [Database Excercise 9](https://github.com/DanielHauge/DBEX9)
+- [2]: Java
+
