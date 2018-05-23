@@ -274,6 +274,8 @@ getBooksInVicenety3 | 1466ms | 307ms | N/A | N/A | 1098ms | 825ms | 746ms | 525m
 getAllAuthors | 10ms | 10ms | 101ms | 103ms | 19ms | 19ms | 125ms | 124ms
 getCitiesBybook | 4ms | 5ms | 745ms | 795ms | 75ms | 75ms | 21ms | 20ms
 
+**Note:** MongoDB cannot query geospartial data without index. ![](https://gyazo.com/c7773dc00dcc617818e64a72d8959ebe)
+
 ### Optimized benchmark
 See [neo4j.optimized](https://gist.github.com/Retroperspect/0f1a880ca44f932d21225dd9e5f379f4), [postgres.optimzed](https://gist.github.com/Retroperspect/a552b9b11e41e3cce8e3bc466cf3da51), [Mongo.optimized](https://gist.github.com/DanielHauge/2fb10e157b2616681d449923230e0949)
 
