@@ -19,7 +19,7 @@ Considering what is best requires some parameters. Given the parameters:
 - Compability
 
 ### Hypothesis
-We expect graph based databases to be less fast than other databases (particularly sql based). Reasoning is from our own experience we gathered [1](https://github.com/DanielHauge/DBEX9). We also expect sql to be very easy to use and compatible with most languages, but less future proof than other dbms. We expect key-value store to be very fast at simple queries and tasks, but lack behind when it comes to aggregations and bigger or more complex queries. We don't realy have a good impression and lack knowledge and experience with document oriented databases to expect anything in particular. 
+We expect graph based databases to be less fast than other databases (particularly sql based). Reasoning is from our own experience we gathered [1](https://github.com/DanielHauge/DBEX9). We also expect sql to be very easy to use and compatible with most languages, but less future proof than other dbms in terms of flexibility. We expect key-value store to be very fast at simple queries and tasks, but lack behind when it comes to aggregations and bigger or more complex queries. We don't realy have a good impression and lack knowledge and experience with document oriented databases to expect anything in particular. 
 
 We expect to experience that databases varies in all catergories. That each paradigm come with it's highlights and challenges in all areas. Which makes us expect we have to recommend a database system depending on alot of factors, depending on how requirements fit a given paradigms strengh or it's weakness.
 
