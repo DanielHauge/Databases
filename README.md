@@ -4,7 +4,22 @@ This repository is for database things in a project for Software development (PB
 This part (database) is based on a project description which can be found [Here](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb)
 
 ## Introduction
-- About what this project sets out to do. and some introduction stuff.
+This projects goal is to build an application that queries different databases from different database paradigms, with the end goal of giving a recommendation for a DBMS from one of the database paradgims.
+
+
+### Initial Problem statement
+Which database paradigm is best?
+
+Given end-userqueries found in [Project description](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/assignments/Project%20Description.ipynb), which database management system form the 4 database paradigm is best at the given task?.
+
+Considering what is best requires some parameters. Given the parameters: 
+- Speed
+- Ease of use
+- Future Proof
+- Compability
+
+### Hypothesis
+- Do we need a hypothesis?
 
 
 ## Data
