@@ -302,6 +302,12 @@ getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 **Important Note:** mongodb doesn't have compatible driver for java to do geospartial queries in aggregation. Hence results have been gained by running a manual benchmark in robo 3T. They still use same test queries. but are manually written. Testsreults [Here]()
 
 ## Conclusion and Discussion
+To make it more clear, we can infer which database is the quickest for each query:
+
+Query | getBooksByCity | getCityBybook | getAllCities | getAllBooks | getBookByAuthor | getBooksInVicenety1 | getBooksInVicenety2 | getBooksInVicenety3 | getAllAuthors | getCitiesBybook
+--------:|:------:|:--------:|:-------:|:--------:|:-------:|:--------:|:-------:|:--------:|:-------:|:--------
+Winner | 
+
 - What does the results say?.
 - What can we conclude from the benchmark.
 - What have influenced the results?
