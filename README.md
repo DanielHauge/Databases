@@ -261,8 +261,28 @@ Query: [Neo4jDataAcesser](https://github.com/soft2018spring-gruppe10/Backend/blo
 Documentation & Reflection: [Neo4j Documentation](https://github.com/soft2018spring-gruppe10/Databases/blob/master/Documentation/Neo4jDocumentation.md)
 
 ## Evaluation
+We will evaluate based on our implementation in our API, see [Back-end repository](https://github.com/soft2018spring-gruppe10/Backend)
 
 ### Evaluation/Benchmark setup
+We have implemented a JUnit benchmark test: [Here](https://github.com/soft2018spring-gruppe10/Backend/blob/master/DBParadigmsGroup10/src/test/java/Interfaces/DatabaseBenchmarkTest.java)
+
+This benchmark have static test data for queries in the database. It will do all 5 cases for each query. Using [vagrantfile](https://github.com/soft2018spring-gruppe10/Databases/blob/master/vagrantfile) to spin up virtualmachine, we can initilize a database with the init script and run the benchmark. We have chossen to measure from the DBMS to when the data is in the correct datamodel in the application (API). We do not measure time it takes to jsoniny or send the json blob to the frontend. The connection to the virtual machine is a local connection, hence it should be unnoticable.
+
+```
+$ ping 192.168.33.11
+
+Pinging 192.168.33.11 with 32 bytes of data:
+Reply from 192.168.33.11: bytes=32 time<1ms TTL=64
+Reply from 192.168.33.11: bytes=32 time<1ms TTL=64
+Reply from 192.168.33.11: bytes=32 time<1ms TTL=64
+Reply from 192.168.33.11: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.33.11:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+less than 1ms everytime. Unable to accurately know how little. Most likely alot less than 1ms. Hence we will not take this delay too seriusly. However it should be noted, that when developing application with databases, it shouldn't be neglected to consider where the database is and where the requester is. [Delay based on geography](https://github.com/DanielHauge/CPH-1st-Cemester/blob/master/Ressources/UFO/Prototype.md). If database is located in a totaly different far away location than the requester, then a constant delay might be added to the performance.
 
 ### Unoptimized benchmark
 
