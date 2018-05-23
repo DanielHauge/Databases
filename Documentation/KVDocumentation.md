@@ -137,3 +137,5 @@ active_defrag_running:0
 lazyfree_pending_objects:0
 ```
 
+**Important NOTE!**
+We have not enabled persistance data. This means this DBMS violates the ACID principles. Mainly the Durability principle. Meaning, if something goes wrong, powerout, crash or anything. All data is lost.
