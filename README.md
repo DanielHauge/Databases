@@ -328,7 +328,7 @@ Neo4j | 174,9ms | 86,9ms
 
 We have 2 perspectives here. One with taking all the vicenety queries into consideration, and one where we only take one of them(20km one) into consideration (unbaised one). However we can form some idea of which database might be a prefered one if we consider speed. If we knew that we are going to make alot of geospartial vicenety queries, we can definitly see from our results that mongoDB is a good choice with our setup. However if we know that we are going to query "All books, cities, authors" Then mongoDB might not be a so good idea. In that case redis and postgress is a better option. If we know that we are going to make alot of queries based on relationships as "Mentions" then neo4j might be a better option, but maybe more if we wanted to do deeper relationship searches. If we know that were are going to query different queries equally as much and want the least amount of time overall, postgres would be a good choice followed closely by mongoDB.
 
-These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, noticably the language used[^fn1], 
+These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, noticably the language used<sup>1</sup>, 
 
 
 - What does the results say?.
@@ -349,4 +349,4 @@ These results are gathered, but our own belief is that they do not proove anythi
 
 
 
-[^fn1]: Java
+1: Java
