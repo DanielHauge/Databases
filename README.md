@@ -305,7 +305,7 @@ getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 To make it more clear, we can infer which database is the quickest for each query:
 
 Query | Average Winner |
------:|:-------:|:---------:
+-----:|:-------:
 getBooksByCity | Neo4j | 
 getCityBybook | redis - mongo |
 getAllCities | redis |
