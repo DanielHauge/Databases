@@ -350,6 +350,6 @@ These results are gathered, but our own belief is that they do not proove anythi
 
 
 ###### Footnotes
-- [1]: [Database Excercise 9](https://github.com/DanielHauge/DBEX9)
-- [2]: Java
+- [1]: https://github.com/DanielHauge/DBEX9
+- [2]: (Java)
 
