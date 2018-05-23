@@ -36,6 +36,9 @@ integer of bookid | integer of cityid | amount of occurences in integer
 
 This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files, by also corssreferencing from all the cities in "Cities csv file". The potential cities has been captured by stanfords named entity recognition software. The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/Main.main/java/Main.main.java).
 
+## Data Model in Application
+
+
 ## DBMS
 
 ### Key-Value store (Redis)
