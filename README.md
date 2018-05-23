@@ -52,9 +52,35 @@ integer of bookid | integer of cityid | amount of occurences in integer
 This .csv file has been obtained from a program we've build to capture and store relevant data from many books (.txt) files, by also corssreferencing from all the cities in "Cities csv file". The potential cities has been captured by stanfords named entity recognition software. The program can be found in this repository [BookParser](https://github.com/soft2018spring-gruppe10/Databases/blob/master/BookParser/src/Main.main/java/Main.main.java).
 
 ## Data Model in Application
-- How is our data model in our application.
-- Why is the data model like that? = Api protocol - To json.
-- Link to API
+We have moddeled our data with the perspective from the frontend. In other words, we thought: What do we want to display and how? and then modelled after datamodel after that. We decided on vue.js as the frontend framework which realy likes json, so we decided on json as the API endpoint wireformat. The Api endpoint documentation can be found [here](https://github.com/soft2018spring-gruppe10/Backend/blob/master/API_PROTOCOL.md), here all routes and data models that the frontned would like is documented. We then modelled the datamodels from this. There is alot of different formats which the data gets transfered to the frontend, hence we implemented an interface of a dataobject which extends(inherets) gson that can parse objects into json. So we have a implementation of the dataobject for each format we want to give the frontend. All the different data models can be found in the [DataObjects Folder] in our [backend repository](https://github.com/soft2018spring-gruppe10/Backend).
+
+Example:
+```java
+public class CityByBook extends DataSerializer implements DataObject {
+    private final int bookId;
+    private final String bookTitle;
+    public final CityWithCords[] cities;
+
+    public CityByBook(int id, String title, CityWithCords[] cits){
+        this.bookId = id;
+        this.bookTitle = title;
+        this.cities = cits;
+    }
+}
+```
+```java
+public class CityWithCords extends DataSerializer implements DataObject {
+    public final String cityName;
+    public final double lat;
+    public final double lng;
+
+    public CityWithCords(String name, double lat, double lon){
+        this.cityName = name;
+        this.lat = lat;
+        this.lng = lon;
+    }
+}
+```
 
 ## DBMS
 
