@@ -275,9 +275,9 @@ getCityBybook | 5ms | 5ms | 743ms | 767ms | 76ms | 76ms | 73ms | 82ms
 getAllCities | 44ms | 40ms | 245ms | 255ms | 46ms | 45ms | 201ms | 209ms
 getAllBooks | 47ms | 40ms | 98ms | 84ms | 48ms | 45ms | 222ms | 235ms
 getBookByAuthor | 4ms | 1ms | 19ms | 18ms | 4ms | 5ms | 33ms | 33ms
-getBooksInVicenety1 | 2048ms | 1591ms | N/A | N/A | 1142ms | 881ms | 4795ms | 4613ms
-getBooksInVicenety2 | 1511ms | 410ms | N/A | N/A | 1114ms | 827ms | 1438ms | 1260ms
-getBooksInVicenety3 | 1466ms | 307ms | N/A | N/A | 1098ms | 825ms | 746ms | 525ms
+getBooksInVicenety1 (100km) | 2048ms | 1591ms | N/A | N/A | 1142ms | 881ms | 4795ms | 4613ms
+getBooksInVicenety2 (50km) | 1511ms | 410ms | N/A | N/A | 1114ms | 827ms | 1438ms | 1260ms
+getBooksInVicenety3 (20km) | 1466ms | 307ms | N/A | N/A | 1098ms | 825ms | 746ms | 525ms
 getAllAuthors | 10ms | 10ms | 101ms | 103ms | 19ms | 19ms | 125ms | 124ms
 getCitiesBybook | 4ms | 5ms | 745ms | 795ms | 75ms | 75ms | 21ms | 20ms
 
@@ -293,9 +293,9 @@ getCityBybook | x | x | 7ms | 4ms | 67ms | 66ms | 37ms | 35ms
 getAllCities | x | x | 252ms | 244ms | 47ms | 46ms | 122ms | 121ms
 getAllBooks | x | x | 117ms | 121ms | 50ms | 44ms | 99ms | 101ms
 getBookByAuthor | x | x | 3ms | 2ms | 4ms | 4ms | 12ms | 13ms
-getBooksInVicenety1 | x | x | 146ms | 114ms | 426ms | 160ms | 446ms | 121ms
-getBooksInVicenety2 | x | x | 101ms | 42ms | 403ms | 107ms | 434ms | 72ms
-getBooksInVicenety3 | x | x | 90ms | 31ms | 387ms | 104ms | 448ms | 74ms
+getBooksInVicenety1 (100km) | x | x | 146ms | 114ms | 426ms | 160ms | 446ms | 121ms
+getBooksInVicenety2 (50km) | x | x | 101ms | 42ms | 403ms | 107ms | 434ms | 72ms
+getBooksInVicenety3 (20km) | x | x | 90ms | 31ms | 387ms | 104ms | 448ms | 74ms
 getAllAuthors | x | x | 111ms | 107ms | 19ms | 19ms | 63ms | 63ms
 getCitiesBybook | x | x | 7ms | 4ms | 68ms | 68ms | 17ms | 17ms
 
@@ -311,11 +311,25 @@ getCityBybook | redis | ~1ms : mongodb
 getAllCities | redis | ~3ms : postgres
 getAllBooks | redis | ~3ms : postgres
 getBookByAuthor | mongo | ~1ms : postgres, redis 
-getBooksInVicenety1 | mongo | ~300ms : postgres,neo4j
-getBooksInVicenety2 | mongo | ~325ms : postgres,neo4j
-getBooksInVicenety3 | mongo | ~350ms : postgres,neo4j
+getBooksInVicenety1 (100km) | mongo | ~300ms : postgres,neo4j
+getBooksInVicenety2 (50km) | mongo | ~325ms : postgres,neo4j
+getBooksInVicenety3 (20km) | mongo | ~350ms : postgres,neo4j
 getAllAuthors | redis | ~10ms : postgres
 getCitiesBybook | redis | ~2ms : mongo
+
+Another perspective we can take is the aggregated averages.
+
+DBMS | Average | Unbiased
+-----:|:------:|:---------
+Redis |  604,8ms | 248,9ms
+Mongo | 103,7ms | 79ms
+Postgres | 159,6ms | 76,7ms
+Neo4j | 174,9ms | 86,9ms
+
+We have 2 perspectives here. One with taking all the vicenety queries into consideration, and one where we only take one of them(20km one) into consideration (unbaised one). However we can form some idea of which database might be a prefered one if we consider speed. If we knew that we are going to make alot of geospartial vicenety queries, we can definitly see from our results that mongoDB is a good choice with our setup. However if we know that we are going to query "All books, cities, authors" Then mongoDB might not be a so good idea. In that case redis and postgress is a better option. If we know that we are going to make alot of queries based on relationships as "Mentions" then neo4j might be a better option, but maybe more if we wanted to do deeper relationship searches. If we know that were are going to query different queries equally as much and want the least amount of time overall, postgres would be a good choice followed closely by mongoDB.
+
+These results are gathered, but our own belief is that they do not proove anything totaly. However they do indicate and estimate a reality. But the results are still influenced by alot of factors, noticably the language used[^fn1], 
+
 
 - What does the results say?.
 - What can we conclude from the benchmark.
@@ -334,3 +348,5 @@ getCitiesBybook | redis | ~2ms : mongo
 - Would it have been different if requirements also included to write to the database?
 
 
+
+[^fn1]: Java
