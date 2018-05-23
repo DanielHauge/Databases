@@ -20,7 +20,7 @@ sudo rm CitiesFinal.csv
 sudo rm Books.csv
 sudo rm BookMentions.csv
 
-sudo docker exec mongo sh -c "mongo mydb --eval 'db.cities.createIndex({ "location": "2dsphere" })'"
+sudo docker exec mongo sh -c "mongo mydb --eval 'db.cities.createIndex({ location: \"2dsphere\" })'"
 sudo docker exec mongo sh -c "mongo mydb --eval 'db.books.createIndex({"Bookid": 1})'"
 sudo docker exec mongo sh -c "mongo mydb --eval 'db.books.createIndex({"Author": 1})'"
 sudo docker exec mongo sh -c "mongo mydb --eval 'db.mentions.createIndex({"Bookid": 1})'"
