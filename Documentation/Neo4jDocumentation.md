@@ -1,6 +1,8 @@
 # Neo4j Documentation
 This is the Neo4j Documentation.
 
+Neo4j was the least troublesome database together with postgres. It's compability with java was spotless and working with neo4j's browser is exellent, in addition to it's profile feature to tune queries during development of queries. There was some initial import problems, but was easily solved with a little bit of tinkering.
+
 ## Optimization:
 We have optimized neo4j with indexes 
 Cityid, Bookid, author. To make index work for geospartial queries. We had to refractor the type from latitude longitude to point. This can easily be achived by what we'd like to call "FindAndModify" query, but is basicly just a update all based on a query.
